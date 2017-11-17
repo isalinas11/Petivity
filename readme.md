@@ -1,6 +1,8 @@
-Contribution Guidelines
+## Contribution Guidelines
 
-First checkout a new branch doing `git co -b my-branch`
+First, type this in your terminal: git remote add https://github.com/GetHub91/Petivity
+
+Next, checkout a new branch doing `git co -b my-branch`
 
 add your changes using `git add file.type`
 
