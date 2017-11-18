@@ -17,7 +17,6 @@ git commit -m "enter message here"
 OR, 'git commit' and then write your message and save.
 
 Push your changes to github using `git push --set-upstream origin my-branch`
-You should be able to just use 'git push' from then on.
 
 Go to the repository and open a pull request and let teammates comment and/or approve
 
