@@ -23,7 +23,7 @@ Add your changes using `git add file.type` or 'git rm file.type'.
 You can add your changes to the entire directory by doing 'git add .'
 
 Commit changes with a message for what you've done: 
-git commit -m "enter message here"
+git commit -m "enter message here". 
 Alternately, use 'git commit' and then write your message and save the file.
 
 Go to the repository, open a pull request, and let teammates comment and/or approve your changes.
