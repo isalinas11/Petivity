@@ -22,7 +22,8 @@ You should be able to just use 'git push' from then on.
 Go to the repository and open a pull request and let teammates comment and/or approve
 
 
-#Troubleshooting:
+Troubleshooting:
+----------------
 
 If you ever get the message, "fatal: Not a git repository (or any of the parent directories): .git", then try adding a remote (repository):
 git add remote origin https://github.com/GetHub91/Petivity

@@ -34,3 +34,5 @@ git remote -v
 If you ever want to get rid of a remote first check your remotes and try:
 git remote rm [remote]
 (usually, you would replace [remote] with origin, but not necessarily)
+
+If you try to 'git push' and everything is up to date but your'e sure you've made changes, then you might have not committed your code.
