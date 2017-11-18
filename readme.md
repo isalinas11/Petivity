@@ -22,7 +22,6 @@ You should now be able to use 'git push' when working on the same branch.
 Go to the repository and open a pull request and let teammates comment and/or approve
 
 
-
 Troubleshooting:
 ----------------
 
