@@ -5,21 +5,29 @@ First, go to the local directory where you wish the project to live.
 Then, clone the project: 
 git clone https://github.com/GetHub91/Petivity
 
-Next, checkout a new branch doing `git checkout -b my-branch`
+Next, checkout a new branch doing `git checkout -b my-branch`, replacing 'my-branch' with whatever you desire your branch name to be.
+
+Push your changes to github using `git push --set-upstream origin my-branch`.
+
+
+Workflow
+---------
+
+Make sure you're on your branch; this keeps the master branch intact, a good insurance policy.
+
+Make your code changes.
 
 Check your staging area using 'git status'
 
-Add your changes using `git add file.type`. 
-Alternately, you can add your changes to the entire directory by doing 'git add .'
+Add your changes using `git add file.type` or 'git rm file.type'. 
+You can add your changes to the entire directory by doing 'git add .'
 
-commit changes with a message for what you've done:
+Commit changes with a message for what you've done: 
 git commit -m "enter message here"
-OR, 'git commit' and then write your message and save.
 
-Push your changes to github using `git push --set-upstream origin my-branch`
-You should now be able to use 'git push' when working on the same branch.
+Alternately, use 'git commit' and then write your message and save the file.
 
-Go to the repository and open a pull request and let teammates comment and/or approve
+Go to the repository, open a pull request, and let teammates comment and/or approve your changes.
 
 
 Troubleshooting:
