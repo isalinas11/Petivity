@@ -1,5 +1,4 @@
 ## Contribution Guidelines
-==========================
 
 First, go to the local directory where you wish the project to live.
 
@@ -24,7 +23,6 @@ Go to the repository and open a pull request and let teammates comment and/or ap
 
 
 Troubleshooting:
-================
 
 If you ever get the message, "fatal: Not a git repository (or any of the parent directories): .git", then try adding a remote (repository):
 git add remote origin https://github.com/GetHub91/Petivity
