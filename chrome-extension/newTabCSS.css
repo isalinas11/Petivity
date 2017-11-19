@@ -1,5 +1,6 @@
 body{
 	background-color: aqua;
+    font-family: 'Monserrat', sans-serif;
 }
 
 #mainPage{
@@ -11,22 +12,22 @@ body{
 }
 
 .calendar{
-	
+
 }
 
 .toDo{
-	
+
 }
 
 .pet{
-	
+
 }
 
 .blockingButton{
-	
+
 }
 .settingsButton{
-	
+
 }
 
 button{
