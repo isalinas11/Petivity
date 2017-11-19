@@ -28,6 +28,11 @@ Alternately, use 'git commit' and then write your message and save the file.
 
 Go to the repository, open a pull request, and let teammates comment and/or approve your changes.
 
+After you've merged your changes, checkout master: git checkout master
+
+Update master: git pull
+
+Checkout your branch and rebase: 'git checkout my-branch' && 'git rebase master'
 
 Troubleshooting:
 ----------------
