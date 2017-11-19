@@ -6,7 +6,7 @@
   "version": "1.0",
 	
 	"chrome_url_overrides" : {
-    "newtab": "myPage.html"
+    "newtab": "webpage.html"
   },
 
   "browser_action": {
