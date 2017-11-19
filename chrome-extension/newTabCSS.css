@@ -2,6 +2,14 @@ body{
 	background-color: aqua;
 }
 
+#mainPage{
+    
+}
+
+.logo{
+    
+}
+
 .calendar{
 	
 }
@@ -23,4 +31,23 @@ body{
 
 button{
     background-color: aquamarine;
+}
+
+#settingsPage{
+    
+}
+.blockedWebsites{
+    
+}
+
+.interests{
+    
+}
+
+.petSelections{
+    
+}
+
+.blockType{
+    
 }

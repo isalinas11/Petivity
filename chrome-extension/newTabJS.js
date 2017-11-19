@@ -17,6 +17,10 @@ controllerName.controller('NewTabController', ['$scope', '$resource',
            $scope.main.selectedPet = selectedPet;
            
  
+        startBlocking(){
+        
+        ///function to start blocking websites
+        }
        
        });
        */
