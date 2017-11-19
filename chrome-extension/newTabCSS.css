@@ -1,5 +1,5 @@
 body{
-	
+	background-color: aqua;
 }
 
 .calendar{
@@ -19,4 +19,8 @@ body{
 }
 .settingsButton{
 	
+}
+
+button{
+    background-color: aquamarine;
 }
