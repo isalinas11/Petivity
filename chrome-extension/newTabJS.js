@@ -4,6 +4,7 @@ controllerName.controller('NewTabController', ['$scope', '$resource',
    function ($scope, $resource) {
        
        var CrabObject = {imageFile: filename.exe};
+       var interests = [];
        
        var petArray = [crabObject, dogObject, TurtleObject];
        /*
