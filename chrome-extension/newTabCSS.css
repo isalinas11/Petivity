@@ -32,6 +32,7 @@ body{
 
 button{
     background-color: aquamarine;
+    padding: 5px;
 }
 
 #settingsPage{
@@ -50,5 +51,9 @@ button{
 }
 
 .blockType{
+    
+}
+
+#selectedPetAvatar{
     
 }
