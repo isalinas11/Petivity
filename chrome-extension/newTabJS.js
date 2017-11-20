@@ -3,9 +3,15 @@
 controllerName.controller('NewTabController', ['$scope', '$resource',
    function ($scope, $resource) {
        
-       var CrabObject = {imageFile: filename.exe};
+      $scope.main.crabObject = {imageFile: filename.exe};
+       $scope.main.interests = [];
+       $scope.main.blockedWebsites = [];
        
-       var petArray = [crabObject, dogObject, TurtleObject];
+       $scope.main.petArray = [crabObject, dogObject, TurtleObject];
+       
+       $scope.main.blockType = hard;
+           
+
        /*
         <ng-image {{$scope.main.selectedPet}}>
        */
@@ -22,11 +28,13 @@ controllerName.controller('NewTabController', ['$scope', '$resource',
         }
         
        Fuction to  add websites
-        $scope.AddWebsites = function(){
-        
+        $scope.AddWebsites = function(website){
+        $scope.main.blockedWebsites.push(websites);
         }
+        
         Function to select a pet
-        $scope.selectPet = function(){
+        $scope.selectPet = function(pet){
+        $scope.main.selectedPet = pet;
         
         }
         
@@ -35,15 +43,16 @@ controllerName.controller('NewTabController', ['$scope', '$resource',
         
         }
         
-        $scope.selectHardOrSoftBlock = function(){
-        
+        $scope.selectHardOrSoftBlock = function(blockType){
+            $scope.main.blockType = blockType;
         }
         
-        $scope.addInterests = function(){
-        
+        $scope.addInterests = function(interest){
+            $scope.main.interests.push(websites);
+
         }
         
-        $scope.EnableDisableWebsites = funciton(){
+        $scope.EnableDisableWebsites = function(){
         
         }
         
