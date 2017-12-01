@@ -11,22 +11,32 @@ var petivityApp = angular.module('petivityApp', []);
  * to the angular scope of view template.
  */
 petivityApp.controller('MainController', ['$scope', function($scope) {
-   // We defined an object called 'main' with a single property 'title' that is used
-   // by the html view template to get the page's title in the browser tab.
-   $scope.main = {};
-   $scope.main.tasks = window.petivitymodels.tasksModel();
-   /*$scope.main.title = 'CS142 Project #4';
-   $scope.main.viewExample = 'True';
-   $scope.main.viewStates = '';
+  // We defined an object called 'main' with a single property 'title' that is used
+  // by the html view template to get the page's title in the browser tab.
+  $scope.main = {};
+  $scope.main.tasks = window.petivitymodels.tasksModel();
+  // $scope.main.tasks = [{name: "tst", days: 4}, {name: "abc", days: 33}];
 
-   $scope.main.switchView = function(num) {
-       console.log(num);
-       if (num === '1') {
-          $scope.main.viewStates = '';
-          $scope.main.viewExample = 'True';
-       } else {
-          $scope.main.viewStates = 'True';
-          $scope.main.viewExample = '';
-       }
-   };*/
+  $scope.newTask = function() {
+    $scope.main.tasks.push({name: this.task, days: this.days});
+    $scope.task = "";
+    $scope.days = "";
+    newTask.style.display = "none";
+
+  }
+
+  /*$scope.main.title = 'CS142 Project #4';
+  $scope.main.viewExample = 'True';
+  $scope.main.viewStates = '';
+
+  $scope.main.switchView = function(num) {
+    console.log(num);
+    if (num === '1') {
+      $scope.main.viewStates = '';
+      $scope.main.viewExample = 'True';
+    } else {
+      $scope.main.viewStates = 'True';
+      $scope.main.viewExample = '';
+    }
+  };*/
 }]);
