@@ -120,6 +120,11 @@ body {
 
 .offset-task {
     padding-left: 15%;
+    border-right: 2px solid black;
+}
+
+li {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 
@@ -184,7 +189,7 @@ ul li:hover {
 
 /* Style the close button */
 .close {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     left: 0;
     top: 0;

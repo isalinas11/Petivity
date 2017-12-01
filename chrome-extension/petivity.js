@@ -26,7 +26,7 @@ function toggleAddTaskVis() {
 // Toggle visibility of form to edit existing task
 editTask.style.display =  "none";
 function toggleEditTaskVis() {
-    document.getElementById("addTask").style.display = "none";
+    // document.getElementById("addTask").style.display = "none";
     var editTask = document.getElementById("editTask");
     toggleVisibility(editTask);
 }
@@ -67,7 +67,7 @@ for (i = 0; i < close.length; i++) {
 // Add a "selected" symbol when clicking on a list item and open the edit window
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'SPAN') {
+  if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
     ev.target.classList.toggle('selected');
     document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
                                                         .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
