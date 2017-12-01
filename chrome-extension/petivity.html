@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="petivityApp" ng-controller="MainController">
 
     <head>
         <title>Petivity</title>
@@ -213,89 +213,22 @@
 
                         <div class="row scroll-overflow">
                             <div class="col-12">
-                                <div class="row no-gutter task">
+
+
+                                <div class="row no-gutter task" ng-repeat="task in main.tasks">
                                     <div class="col-2 remove-padding text-center">
                                         <form action=''>
                                             <input type="checkbox" onclick="this.form.submit();">
                                         </form>
                                     </div>
                                     <div class="col-7 remove-padding">
-                                        <button type="button" class="btn btn-secondary full-width" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<form action=''>Task name:<br><input type='text' name='taskname' value='Laundry'><br>Days remaining:<br><input type='text' name='daysremaining' value='0'><br><br><input type='submit' value='Confirm'><input type='button' value='Delete'></form>">
-                                            Laundry
+                                        <button type="button" class="btn btn-secondary full-width" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<form action=''>Task name:<br><input type='text' name='taskname' value={{task.name}}><br>Days remaining:<br><input type='text' name='daysremaining' value={{task.days}}><br><br><input type='submit' value='Confirm'><input type='button' value='Delete'></form>">
+                                            {{task.name}}
                                         </button>
                                     </div>
-                                    <div class="col-3 remove-padding text-center">0</div>
+                                    <div class="col-3 remove-padding text-center">{{task.days}}</div>
                                 </div>
 
-                                <div class="row no-gutter remove-padding task">
-                                    <div class="col-2 remove-padding text-center">
-                                        <form action=''>
-                                            <input type="checkbox" onclick="this.form.submit();">
-                                        </form>
-                                    </div>
-                                    <div class="col-7 remove-padding">
-                                        <button type="button" class="btn btn-secondary full-width" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<form action=''>Task name:<br><input type='text' name='taskname' value='Math homework'><br>Days remaining:<br><input type='text' name='daysremaining' value='2'><br><br><input type='submit' value='Confirm'><input type='button' value='Delete'></form>">
-                                            Math homework
-                                        </button>
-                                    </div>
-                                    <div class="col-3 remove-padding text-center">2</div>
-                                </div>
-
-                                <div class="row no-gutter remove-padding task">
-                                    <div class="col-2 remove-padding text-center">
-                                        <form action=''>
-                                            <input type="checkbox" onclick="this.form.submit();">
-                                        </form>
-                                    </div>
-                                    <div class="col-7 remove-padding">
-                                        <button type="button" class="btn btn-secondary full-width" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<form action=''>Task name:<br><input type='text' name='taskname' value='Finish presentation'><br>Days remaining:<br><input type='text' name='daysremaining' value='5'><br><br><input type='submit' value='Confirm'><input type='button' value='Delete'></form>">
-                                            Finish presentation
-                                        </button>
-                                    </div>
-                                    <div class="col-3 remove-padding text-center">5</div>
-                                </div>
-
-                                <div class="row no-gutter remove-padding task">
-                                    <div class="col-2 remove-padding text-center">
-                                        <form action=''>
-                                            <input type="checkbox" onclick="this.form.submit();">
-                                        </form>
-                                    </div>
-                                    <div class="col-7 remove-padding">
-                                        <button type="button" class="btn btn-secondary full-width" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<form action=''>Task name:<br><input type='text' name='taskname' value='Buy groceries'><br>Days remaining:<br><input type='text' name='daysremaining' value='8'><br><br><input type='submit' value='Confirm'><input type='button' value='Delete'></form>">
-                                            Buy groceries
-                                        </button>
-                                    </div>
-                                    <div class="col-3 remove-padding text-center">8</div>
-                                </div>
-
-                                <div class="row no-gutter remove-padding task">
-                                    <div class="col-2 remove-padding text-center">
-                                        <form action=''>
-                                            <input type="checkbox" onclick="this.form.submit();">
-                                        </form>
-                                    </div>
-                                    <div class="col-7 remove-padding">
-                                        <button type="button" class="btn btn-secondary full-width" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<form action=''>Task name:<br><input type='text' name='taskname' value='Study'><br>Days remaining:<br><input type='text' name='daysremaining' value='9'><br><br><input type='submit' value='Confirm'><input type='button' value='Delete'></form>">
-                                            Study
-                                        </button>
-                                    </div>
-                                    <div class="col-3 remove-padding text-center">9</div>
-                                </div>
-
-                                <div class="row no-gutter remove-padding task">
-                                    <div class="col-2 remove-padding text-center">
-                                        <form action=''>
-                                            <input type="checkbox" onclick="this.form.submit();">
-                                        </form>
-                                    </div>
-                                    <div class="col-7 remove-padding">
-                                        <button type="button" class="btn btn-secondary full-width" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<form action=''>Task name:<br><input type='text' name='taskname' value='Eat'><br>Days remaining:<br><input type='text' name='daysremaining' value='9'><br><br><input type='submit' value='Confirm'><input type='button' value='Delete'></form>">
-                                            Eat
-                                        </button>
-                                    </div>
-                                    <div class="col-3 remove-padding text-center">9</div>
-                                </div>
 
                             </div>
                         </div>
@@ -319,6 +252,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="mainController.js"></script>
+    <script src="modelData/tasks.js"></script>
 
     <script>
         $( function ()
