@@ -21,7 +21,8 @@ const Button = (props) => {
             onPress={props.onPress} 
             style={[
                 props.noDefaultStyles ? '' : styles.button, 
-                props.styles ? props.styles.button : '']}
+                props.styles ? props.styles.button : '']
+            }
         >
             { getContent() }
         </TouchableHighlight>
