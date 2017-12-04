@@ -4,136 +4,34 @@ body {
     color: white;
 }
 
-.petivity-header {
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 10px
-}
-
-.section-header {
-    font-size: 25px;
-}
-
-.calendar-header {
-    padding-left: 30px;
-}
-
-.checkboxes {
-    background-color: #82cece;
-    height: 70vh;
-    margin: 0 5px;
-}
-
-.calendar {
-    background-color: #82cece;
-    height: 70vh;
-    margin: 0 5px;
-}
-
-.tasks {
-    background-color: #82cece;
-    height: 40vh;
-    margin: 0 5px;
-}
-
-.task {
-    height: 45px;
-}
-
-.pet {
-    background-color: gray;
-    height: 40vh;
-    margin: 0 5px;
-    margin-top: 10px;
-}
-
-.petivity-calendars {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 30vh;
-    background-color: #b5e4eb;
-}
-
-.user-calendars {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 30vh;
-    background-color: #b5e4eb;
-}
-
-.calendar-section {
-    padding: 0px;
-    margin-top: 10px;
-    background-color: #b5e4eb;
-}
-
-.remove-padding {
-    padding: 0px;
-}
-
-.calendar-events {
-    height: 60vh;
-    overflow-y: overlay;
-}
-
-.calendar-event {
-    height: 50px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-}
-
-.calendar-arrow {
-    vertical-align: middle;
-    margin-top: 10px;
-    padding: 0px;
-}
-
-.full-width {
+input[type=text], select {
     width: 100%;
+    padding: 8px 8px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.scroll-overflow {
-    height: 70%;
-    overflow-y: overlay;
+input[type=submit], input[type=button] {
+    width: 40%;
+    background-color: rgb(134, 206, 205);
+    color: white;
+    padding: 10px 10px;
+    /*margin: 8px 0;*/
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.task-header {
-    font-size: 18px;
-}
-
-.day-header {
-    font-size: 12px;
-}
-
-.task-header-section {
-    height: 15%;
-}
-
-.task-add-section {
-    height: 20%;
-}
-
-.offset-task {
-    padding-left: 15%;
-    border-right: 2px solid black;
+input[type=submit]:hover, input[type=button]:hover {
+    background-color: rgb(185, 220, 240);
 }
 
 li {
     border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
-
-
-
-
-/* Include the padding and border in an element's total width and height */
-/** {
-    box-sizing: border-box;
-}*/
 
 /* Remove margins and padding from the list */
 ul {
@@ -156,44 +54,58 @@ ul li {
     user-select: none;
 }
 
-/* Set all odd list items to a different color (zebra-stripes) */
-/*ul li:nth-child(odd) {
-    background: #f9f9f9;
-}*/
-
 /* Darker background-color on hover */
 ul li:hover {
     background: rgb(185, 220, 240);
 }
 
-/* When clicked on, add a background color and strike out text */
-/*ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-}*/
+.calendar {
+    background-color: #82cece;
+    height: 70vh;
+    margin: 0 5px;
+}
 
-/* Add a "checked" mark when clicked on */
-/*ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
+.calendar-arrow {
+    vertical-align: middle;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.calendar-event {
+    height: 50px;
+    border-width: 1px;
     border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-}*/
+    border-color: black;
+}
+
+.calendar-events {
+    height: 60vh;
+    overflow-y: overlay;
+}
+
+.calendar-header {
+    padding-left: 30px;
+}
+
+.calendar-section {
+    padding: 0px;
+    margin-top: 10px;
+    background-color: #b5e4eb;
+}
+
+.checkboxes {
+    background-color: #82cece;
+    height: 70vh;
+    margin: 0 5px;
+}
 
 /* Style the close button */
 .close {
-    z-index: 2;
+    z-index: 1;
     position: absolute;
     left: 0;
     top: 0;
-    padding: 12px 6px 12px 6px;
+    padding: 4px 6px 16px 6px;
 }
 
 .close:hover {
@@ -201,52 +113,92 @@ ul li:hover {
     color: white;
 }
 
-/* Style the header */
-/*.header {
-    background-color: #f44336;
-    padding: 30px 40px;
-    color: white;
-    text-align: center;
-}*/
-
-/* Clear floats after the header */
-/*.header:after {
-    content: "";
-    display: table;
-    clear: both;
-}*/
-
-/* Style the input */
-/*input {
-    border: none;
-    width: 75%;
-    padding: 10px;
-    float: left;
-    font-size: 16px;
-}*/
-
-/* Style the "Add" button */
-/*.addBtn {
-    padding: 10px;
-    width: 25%;
-    background: #d9d9d9;
-    color: #555;
-    float: left;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+.day-header {
+    font-size: 12px;
 }
 
-.addBtn:hover {
-    background-color: #bbb;
-}*/
+.full-width {
+    width: 100%;
+}
 
+.pet {
+    background-color: gray;
+    height: 40vh;
+    margin: 0 5px;
+    margin-top: 10px;
+}
+
+.petivity-calendars {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30vh;
+    background-color: #b5e4eb;
+}
+
+.petivity-header {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px
+}
+
+.remove-padding {
+    padding: 0px;
+}
+
+.section-header {
+    font-size: 25px;
+}
+
+.task {
+    height: 45px;
+}
+
+.tasks {
+    background-color: #82cece;
+    height: 40vh;
+    margin: 0 5px;
+}
+
+.user-calendars {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30vh;
+    background-color: #b5e4eb;
+}
+
+.scroll-overflow {
+    height: 70%;
+    overflow-y: overlay;
+}
+
+.task-header {
+    font-size: 18px;
+}
+
+.task-header-section {
+    height: 15%;
+}
+
+.task-add-section {
+    height: 20%;
+}
+
+.offset-task {
+    padding-left: 15%;
+    border-right: 2px solid black;
+}
+
+/* Style the newTask and editTask forms */
 #newTask, #editTask {
     z-index: 2;
     position: absolute;
-    bottom: 20%;
     display: inline-block;
+    width: 100%;
+    height: 85%;
     padding: 6px 6px;
     font-size: 14px;
     font-weight: 400;
@@ -263,9 +215,8 @@ ul li:hover {
     user-select: none;
     background-image: none;
     border: 1px solid transparent;
-    border-radius: 10px;
+    border-radius: 4px;
     text-decoration: none;
-
     color: #333;
     background-color: #fff;
     border-color: #ccc;

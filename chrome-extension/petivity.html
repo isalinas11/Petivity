@@ -204,14 +204,32 @@
             <div class="col-3">
                 <div class="row tasks">
                     <div class="col-12">
-
                         <div class="row task-header-section">
                             <div class="col-2 remove-padding"></div>
                             <div class="col-7 remove-padding text-center task-header">Task</div>
                             <div class="col-3 remove-padding text-center day-header">Days remaining</div>
                         </div>
-
                         <div class="row scroll-overflow">
+                            <div id="editTask">
+                                <form onsubmit="event.preventDefault();">
+                                    Task name:<br>
+                                    <input type='text' id='taskname'><br>
+                                    Days remaining:<br>
+                                    <input type='text' id='daysremaining'><br><br>
+                                    <input type='submit' value='Confirm' onclick="editElement()">
+                                    <input type='button' value='Cancel' onclick="toggleEditTaskVis(); cancelEdit()">
+                                </form>
+                            </div>
+                            <div id="newTask">
+                                <form onsubmit="event.preventDefault();">
+                                    <label>Task name:</label><br>
+                                    <input type='text' id='new_taskname'><br>
+                                    <label>Days remaining:</label><br>
+                                    <input type='text' id='new_daysremaining'><br><br>
+                                    <input type='submit' value='Add' onclick="newElement()">
+                                    <input type='button' value='Cancel' onclick="toggleAddTaskVis()">
+                                </form>
+                            </div>
                             <div class="col-12">
                                 <ul id="myUL" style="list-style: none">
                                     <li class="row no-gutter remove-padding task">
@@ -241,27 +259,6 @@
                                 </ul>
 
                             </div>
-                        </div>
-
-                        <div id="editTask">
-                            <form onsubmit="event.preventDefault();">
-                                Task name:<br>
-                                <input type='text' id='taskname'><br>
-                                Days remaining:<br>
-                                <input type='text' id='daysremaining'><br><br>
-                                <input type='submit' value='Confirm' onclick="editElement()">
-                                <input type='button' value='Cancel' onclick="toggleEditTaskVis(); cancelEdit()">
-                            </form>
-                        </div>
-                        <div id="newTask">
-                            <form onsubmit="event.preventDefault();">
-                                Task name:<br>
-                                <input type='text' id='new_taskname'><br>
-                                Days remaining:<br>
-                                <input type='text' id='new_daysremaining'><br><br>
-                                <input type='submit' value='Add' onclick="newElement()">
-                                <input type='button' value='Cancel' onclick="toggleAddTaskVis()">
-                            </form>
                         </div>
                         <div class="row task-add-section">
                             <div class="col-12">
