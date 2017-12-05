@@ -191,6 +191,29 @@ function newElement() {
   makeXsCloseable();
 }
 
+//to add animations any time an item is completed
+$(".close").click(function() {
+    /*if($("#fruit").hasClass('disappear')){
+              $('#fruit').removeClass('disappear');
+
+    }*/
+      $('#fruit').toggleClass('transform-active');
+          $('#fruit').toggleClass('fade');
+
+
+    /**
+    if($("#fruit").hasClass('transform-active')){
+          $('#fruit').removeClass('transform-active');
+      //$('#fruit').toggleClass('disappear')
+    }
+    // $('#fruit').removeClass('disappear');
+  $('#fruit').toggleClass('transform-active');
+  */
+    
+ 
+});
+
+
 
 /*
  * Angular popover code.
