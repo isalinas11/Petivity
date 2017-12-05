@@ -242,3 +242,42 @@ ul li:hover {
     background-color: #fff;
     border-color: #ccc;
 }
+
+#fruit{
+    display: block;
+    height: 50px;
+
+}
+
+.disappear{
+    display: none;
+}
+
+@keyframes makeDisappear{
+    0% {opacity: 1; }
+    1% {opacity: 1;}
+    100% {opacity: 0};
+    
+}
+@-webkit-keyframes makeDisappear {
+    0% {opacity: 1;}
+    95% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+
+.transform-active {
+    transform: translate(0px, 150px);
+    -webkit-transition: all 2s ease-out;  
+    -moz-transition: all 2s ease-out;  
+    -o-transition: all 2s ease-out;  
+    -ms-transition: all 2s ease-out;  
+    transition: all 2s ease-out;
+  
+}
+
+
+    
+
+
+
