@@ -157,7 +157,15 @@ $(".close").click(function() {
 
     }*/
       $('#fruit').toggleClass('transform-active');
+      setTimeout(function() {
+        $('#fruit').toggleClass('fade');
+        setTimeout(function() {
+          $('#fruit').toggleClass('transform-active');
           $('#fruit').toggleClass('fade');
+        }, 2000);
+      }, 2000);
+      
+      
 
 
     /**

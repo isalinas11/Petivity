@@ -141,8 +141,10 @@ ul li:hover {
 }
 
 .logo_settings {
-    height: 100%;
-    width: 25%;
+    height: 70%;
+    width: 13%;
+    padding-right: 30px;
+    padding-top: 8px;
 }
 
 .pet {
