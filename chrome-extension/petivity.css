@@ -1,6 +1,6 @@
 body {
     font-family: 'Monserrat', sans-serif;
-    background-color: #45c4ff;
+    background: #45c4ff url("background.jpg") repeat;
     color: white;
 }
 
@@ -19,7 +19,6 @@ input[type=submit], input[type=button] {
     background-color: rgb(134, 206, 205);
     color: white;
     padding: 10px 10px;
-    /*margin: 8px 0;*/
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -30,7 +29,8 @@ input[type=submit]:hover, input[type=button]:hover {
 }
 
 li {
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(20, 80, 100, 0.5);
+    border-radius: 10px;
 }
 
 /* Remove margins and padding from the list */
@@ -43,7 +43,7 @@ ul {
 ul li {
     cursor: pointer;
     position: relative;
-    background: rgb(134, 206, 205);
+    background: #6BCBCA;
     font-size: 18px;
     transition: 0.2s;
 
@@ -57,10 +57,15 @@ ul li {
 /* Darker background-color on hover */
 ul li:hover {
     background: rgb(185, 220, 240);
+    color: rgb(20, 80, 100);
+}
+
+.addButton {
+    padding: 0;
 }
 
 .calendar {
-    background-color: #82cece;
+    background-color: #6BCBCA;
     height: 70vh;
     margin: 0 5px;
 }
@@ -84,7 +89,7 @@ ul li:hover {
 }
 
 .calendar-header {
-    padding-left: 30px;
+    padding-left: 17%;
 }
 
 .calendar-section {
@@ -94,7 +99,7 @@ ul li:hover {
 }
 
 .checkboxes {
-    background-color: #82cece;
+    background-color: #6BCBCA;
     height: 70vh;
     margin: 0 5px;
 }
@@ -105,7 +110,7 @@ ul li:hover {
     position: absolute;
     left: 0;
     top: 0;
-    padding: 4px 6px 16px 6px;
+    padding: 9px 6px 12px 6px;
 }
 
 .close:hover {
@@ -121,6 +126,25 @@ ul li:hover {
     width: 100%;
 }
 
+.google-calendar {
+    padding: 0;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: 5px solid #b5e4eb;
+    border-radius: 2px;
+}
+
+.logo_main {
+    padding-left: 30px;
+    height: 100%;
+    width: 40%;
+}
+
+.logo_settings {
+    height: 100%;
+    width: 25%;
+}
+
 .pet {
     background-color: gray;
     height: 40vh;
@@ -128,13 +152,15 @@ ul li:hover {
     margin-top: 10px;
 }
 
-.petivity-calendars {
+.user-calendars {
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 30vh;
-    background-color: #b5e4eb;
+    /*margin-top: 10px;
+    margin-bottom: 10px;*/
+    height: 35vh;
+    /*background-color: #b5e4eb;*/
+    border: 5px solid #b5e4eb;
+    border-radius: 2px;
 }
 
 .petivity-header {
@@ -152,27 +178,20 @@ ul li:hover {
 }
 
 .task {
-    height: 45px;
-}
-
-.tasks {
-    background-color: #82cece;
-    height: 40vh;
-    margin: 0 5px;
-}
-
-.user-calendars {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 30vh;
-    background-color: #b5e4eb;
+    line-height: 45px;
 }
 
 .scroll-overflow {
     height: 70%;
     overflow-y: overlay;
+}
+
+.tasks {
+    background-color: #b5e4eb;
+    height: 38vh;
+    margin: 0 5px;
+    border: 5px solid #b5e4eb;
+    border-radius: 2px;
 }
 
 .task-header {
@@ -181,6 +200,8 @@ ul li:hover {
 
 .task-header-section {
     height: 15%;
+    background-color: #6BCBCA;
+    border-bottom: 1px solid rgba(20, 80, 100, 0.5);
 }
 
 .task-add-section {
@@ -189,7 +210,7 @@ ul li:hover {
 
 .offset-task {
     padding-left: 15%;
-    border-right: 2px solid black;
+    border-right: 2px solid rgba(20, 80, 100, 0.5);
 }
 
 /* Style the newTask and editTask forms */
@@ -198,7 +219,7 @@ ul li:hover {
     position: absolute;
     display: inline-block;
     width: 100%;
-    height: 85%;
+    height: 86%;
     padding: 6px 6px;
     font-size: 14px;
     font-weight: 400;

@@ -1,17 +1,13 @@
 // Hide "add new task" form
-newTask.style.display =  "none";
+newTask.style.display = "none";
 
 // Hide "edit task" form
-editTask.style.display =  "none";
+editTask.style.display = "none";
 
 // Create a "close" button and append it to each list item
 var myNodelist = document.getElementsByTagName("LI");
 for (var i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
+  addTextElement(myNodelist[i], "span", "close", "\u00D7");
 }
 
 // Give closing functionality to "close" buttons
@@ -29,6 +25,38 @@ list.addEventListener('click', function(ev) {
     toggleEditTaskVis();
   }
 }, false);
+
+// Event listeners for buttons in newTask form
+document.getElementById("addButton").addEventListener("click", function() {
+  toggleAddTaskVis();
+});
+document.getElementById("newElement").addEventListener("click", event => {
+  event.preventDefault();
+  newElement();
+});
+document.getElementById("cancelAdd").addEventListener("click", function() {
+  toggleAddTaskVis();
+});
+
+// Event listeners for buttons in editTask form
+document.getElementById("editElement").addEventListener("click", event => {
+  event.preventDefault();
+  editElement();
+});
+document.getElementById("cancelEdit").addEventListener("click", function() {
+  toggleEditTaskVis();
+  cancelEdit();
+});
+
+
+// Appends textNode to tagged element to parent node
+function addTextElement(parent, tag, className, text) {
+  var child = document.createElement(tag);
+  var textNode = document.createTextNode(text);
+  child.className = className;
+  child.appendChild(textNode);
+  parent.appendChild(child);
+}
 
 // Click on a close button to hide the current list item
 function makeXsCloseable() {
@@ -118,19 +146,21 @@ function editElement() {
 
 // Create a new list item when clicking on the "Add" button
 function newElement() {
-  var txt = document.getElementById("new_taskname").value;
+  // var txt = document.getElementById("new_taskname").value;
   var days = document.getElementById("new_daysremaining").value;
   if (!days) days = 0;      // Add alert feature for user
 
   var li = document.createElement("LI");
-  var task = document.createElement("SPAN");
+  addTextElement(li, "SPAN", "col-9 remove-padding offset-task", document.getElementById("new_taskname").value);
+
+  // var task = document.createElement("SPAN");
   var days_remaining = document.createElement("SPAN");
   var x = document.createElement("SPAN");
 
-  var t = document.createTextNode(txt);
-  task.className = "col-9 remove-padding offset-task";
-  task.appendChild(t);
-  li.appendChild(task);
+  // var t = document.createTextNode(txt);
+  // task.className = "col-9 remove-padding offset-task";
+  // task.appendChild(t);
+  // li.appendChild(task);
 
   var d = document.createTextNode(days);
   days_remaining.className = "col-3 remove-padding text-center";
