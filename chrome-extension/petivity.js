@@ -58,27 +58,25 @@ function addTextElement(parent, tag, className, text) {
   parent.appendChild(child);
 }
 
-// Click on a close button to hide the current list item
+// Click on a close button to delete the current list item
 function makeXsCloseable() {
   var close = document.getElementsByClassName("close");
   for (var i = 0; i < close.length; i++) {
     close[i].onclick = function() {
       var div = this.parentElement;
-      div.style.display = "none";
+      div.parentElement.removeChild(div);
     }
   }
 }
 
 // Toggles visibility of form to add new task
 function toggleAddTaskVis() {
-    document.getElementById("editTask").style.display = "none";
     var newTask = document.getElementById("newTask");
     toggleVisibility(newTask);
 }
 
 // Toggles visibility of form to edit existing task
 function toggleEditTaskVis() {
-  // document.getElementById("addTask").style.display = "none";
   var editTask = document.getElementById("editTask");
   toggleVisibility(editTask);
 }
@@ -100,95 +98,56 @@ function cancelEdit() {
 // Edit an item
 function editElement() {
   var elem = document.getElementsByClassName("selected")[0].parentNode;
-  var oldDays = elem.getElementsByClassName("col-3 remove-padding text-center")[0];
   var newDays = document.getElementById("daysremaining").value;
-  var newTask = document.getElementById("taskname").value;
 
   var li = document.createElement("LI");
-  var task = document.createElement("SPAN");
-  var days_remaining = document.createElement("SPAN");
-  var x = document.createElement("SPAN");
-
-  var t = document.createTextNode(newTask);
-  task.className = "col-9 remove-padding offset-task";
-  task.appendChild(t);
-  li.appendChild(task);
-
-  var d = document.createTextNode(newDays);
-  days_remaining.className = "col-3 remove-padding text-center";
-  days_remaining.appendChild(d);
-  li.appendChild(days_remaining);
-
-  txt = document.createTextNode("\u00D7");
-  x.className = "close";
-  x.appendChild(txt);
-
-  li.appendChild(x);
   li.className = "row no-gutter remove-padding task";
 
-  myNodelist = document.getElementsByTagName("LI");
-  for (i = 0; i < myNodelist.length; i++) {
-    var c = myNodelist[i].getElementsByClassName("col-3 remove-padding text-center");
-    if ((c[0].innerText > newDays)) {
-      document.getElementById("myUL").insertBefore(li, myNodelist[i]);
-      break;
-    } else if (i == myNodelist.length-1) {
-      document.getElementById("myUL").appendChild(li);
-    } 
-  }
+  addTextElement(li, "SPAN", "col-9 remove-padding offset-task", document.getElementById("taskname").value);
+  addTextElement(li, "SPAN", "col-3 remove-padding text-center", newDays);
+  addTextElement(li, "SPAN", "close", "\u00D7");
+
+  insertTask(li, document.getElementsByTagName("LI"), newDays);
+  elem.parentNode.removeChild(elem);
+  makeXsCloseable();
 
   document.getElementById("taskname").value = "";
   document.getElementById("daysremaining").value = "";
-  elem.parentNode.removeChild(elem);
   toggleEditTaskVis();
-  makeXsCloseable();
 }
 
 // Create a new list item when clicking on the "Add" button
 function newElement() {
-  // var txt = document.getElementById("new_taskname").value;
   var days = document.getElementById("new_daysremaining").value;
   if (!days) days = 0;      // Add alert feature for user
 
   var li = document.createElement("LI");
-  addTextElement(li, "SPAN", "col-9 remove-padding offset-task", document.getElementById("new_taskname").value);
-
-  // var task = document.createElement("SPAN");
-  var days_remaining = document.createElement("SPAN");
-  var x = document.createElement("SPAN");
-
-  // var t = document.createTextNode(txt);
-  // task.className = "col-9 remove-padding offset-task";
-  // task.appendChild(t);
-  // li.appendChild(task);
-
-  var d = document.createTextNode(days);
-  days_remaining.className = "col-3 remove-padding text-center";
-  days_remaining.appendChild(d);
-  li.appendChild(days_remaining);
-
-  txt = document.createTextNode("\u00D7");
-  x.className = "close";
-  x.appendChild(txt);
-
-  li.appendChild(x);
   li.className = "row no-gutter remove-padding task";
 
-  myNodelist = document.getElementsByTagName("LI");
-  for (i = 0; i < myNodelist.length; i++) {
-    var c = myNodelist[i].getElementsByClassName("col-3 remove-padding text-center");
-    if ((c[0].innerText > days)) {
-      document.getElementById("myUL").insertBefore(li, myNodelist[i]);
-      break;
-    } else if (i == myNodelist.length-1) {
-      document.getElementById("myUL").appendChild(li);
-    }
-  }
+  addTextElement(li, "SPAN", "col-9 remove-padding offset-task", document.getElementById("new_taskname").value);
+  addTextElement(li, "SPAN", "col-3 remove-padding text-center", days);
+  addTextElement(li, "SPAN", "close", "\u00D7");
+
+  insertTask(li, document.getElementsByTagName("LI"), days);
+  makeXsCloseable();
 
   document.getElementById("new_taskname").value = "";
   document.getElementById("new_daysremaining").value = "";
   toggleAddTaskVis();
-  makeXsCloseable();
+}
+
+// Inserts task into to-do list by order of days remaining
+function insertTask(task, nodeList, daysRemaining) {
+  for (i = 0; i < nodeList.length; i++) {
+    var c = nodeList[i].getElementsByClassName("col-3 remove-padding text-center");
+
+    if ((c[0].innerText > daysRemaining)) {
+      document.getElementById("myUL").insertBefore(task, nodeList[i]);
+      break;
+    } else if (i == nodeList.length-1) {
+      document.getElementById("myUL").appendChild(task);
+    }
+  }
 }
 
 //to add animations any time an item is completed
@@ -219,7 +178,6 @@ $(".close").click(function() {
  * Angular popover code.
  * No longer in use; kept for historical reasons.
  */
-
 // $( function () {
 //   $('[data-toggle="popover"]').popover();
 
