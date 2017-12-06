@@ -155,27 +155,34 @@ function insertTask(task, nodeList, daysRemaining) {
 
 //to add animations any time an item is completed
 $(".close").click(function() { 
-    /*
-  var child = document.createElement("newFruit");
-      var parent = document.getElementById("fruit");
-  child.setAttribute("src", "mango.png");
-  //child.className = className;
-  //child.appendChild(textNode);
-  parent.appendChild(child);
-*/
-    document.getElementById("fruit").style.display = "block";
-    setTimeout(function() {
-        $('#fruit').toggleClass('transform-active');
-        setTimeout(function() {
-            $('#fruit').toggleClass('fade');
-            setTimeout(function() {
-                $('#fruit').toggleClass('transform-active');
-                $('#fruit').toggleClass('fade');
-                document.getElementById("fruit").style.display = "none";
 
+//for the fruit
+    var child = new Image();
+    var parent = document.getElementById("tempFruit");
+    child.setAttribute("src", "mango.png");
+    child.setAttribute("width", "50px");
+       //child.setAttribute("float", "right");
+
+    parent.appendChild(child);
+   // console.log(parent);
+
+    child.style.display = "block";
+    
+    console.log(child);
+
+    setTimeout(function() {
+        $(child).toggleClass('transform-active');
+        setTimeout(function() {
+            $(child).toggleClass('fade');
+            setTimeout(function() {
+                $(child).toggleClass('transform-active');
+                $(child).toggleClass('fade');
+                document.getElementById("fruit").style.display = "none";
+                parent.removeChild(child);
             }, 2000);
         }, 2000);
     }, 500);
+
 
 });
 
