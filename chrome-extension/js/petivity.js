@@ -1,5 +1,9 @@
+<<<<<<< HEAD:chrome-extension/js/petivity.js
+/* ----------     On new tab     ---------- */
+=======
 // Hide fruit
 document.getElementById("fruit").style.display = "none";
+>>>>>>> master:chrome-extension/petivity.js
 
 // Hide "add new task" form
 newTask.style.display = "none";
@@ -13,9 +17,13 @@ for (var i = 0; i < myNodelist.length; i++) {
     addTextElement(myNodelist[i], "span", "close", "\u00D7");
 }
 
-// Give closing functionality to "close" buttons
+// Add "close" buttons
 makeXsCloseable();
 
+<<<<<<< HEAD:chrome-extension/js/petivity.js
+
+/* ----------     Event listeners     ---------- */
+=======
 // Add a "selected" class to clicked list item and open the edit window
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
@@ -28,6 +36,7 @@ list.addEventListener('click', function(ev) {
         toggleEditTaskVis();
     }
 }, false);
+>>>>>>> master:chrome-extension/petivity.js
 
 // Event listeners for buttons in newTask form
 document.getElementById("addButton").addEventListener("click", function() {
@@ -51,6 +60,21 @@ document.getElementById("cancelEdit").addEventListener("click", function() {
     cancelEdit();
 });
 
+// Open the edit task window; Adds a "selected" class to list items when clicked
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
+    ev.target.classList.toggle('selected');
+    document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
+                                                        .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
+    document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
+                                                             .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
+    toggleEditTaskVis();
+  }
+}, false);
+
+
+/* ----------    Functions     ---------- */
 
 // Appends textNode to tagged element to parent node
 function addTextElement(parent, tag, className, text) {
@@ -74,8 +98,8 @@ function makeXsCloseable() {
 
 // Toggles visibility of form to add new task
 function toggleAddTaskVis() {
-    var newTask = document.getElementById("newTask");
-    toggleVisibility(newTask);
+  var newTask = document.getElementById("newTask");
+  toggleVisibility(newTask);
 }
 
 // Toggles visibility of form to edit existing task
@@ -95,7 +119,7 @@ function toggleVisibility(task) {
 
 // Hit the cancel button when editing an task
 function cancelEdit() {
-    document.getElementsByClassName('selected')[0].classList.toggle("selected");
+  document.getElementsByClassName('selected')[0].classList.toggle("selected");
 }
 
 // Edit an item
@@ -154,6 +178,20 @@ function insertTask(task, nodeList, daysRemaining) {
 }
 
 //to add animations any time an item is completed
+<<<<<<< HEAD:chrome-extension/js/petivity.js
+$(".close").click(function() {
+  $('#fruit').toggleClass('transform-active');
+  setTimeout(function() {
+
+    $('#fruit').toggleClass('fade');
+    setTimeout(function() {
+
+      $('#fruit').toggleClass('transform-active');
+      $('#fruit').toggleClass('fade');
+
+    }, 2000);
+  }, 2000);
+=======
 $(".close").click(function() { 
     /*
   var child = document.createElement("newFruit");
@@ -177,6 +215,7 @@ $(".close").click(function() {
         }, 2000);
     }, 500);
 
+>>>>>>> master:chrome-extension/petivity.js
 });
 
 
