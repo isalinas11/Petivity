@@ -1,26 +1,20 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
+
 <html>
   <head>
     <title>Petivity</title>
-    <script src="js/popup.js"></script>
+    <script src="js/blocked.js"></script>
   </head>
 
   <body>
-    <h1>Background Color Changer</h1>
-    <div id="container">
-      <span>Choose a color</span>
-      <select id="dropdown">
-        <option selected disabled hidden value=''></option>
-        <option value="white">White</option>
-        <option value="pink">Pink</option>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
-      </select>
+    <div id="container" style="white-space: nowrap;">
+      <div id="toggle_site_blocking">
+        <button id='block_sites_button' class='lg_button'></button>
+      </div>
+      <div id="block_this_site">
+        <button id='block_this_site_button' class='grey med_button'>Block this site</button>
+      </div>
+      <div id="blocked_sites"></div>
     </div>
   </body>
 </html>
