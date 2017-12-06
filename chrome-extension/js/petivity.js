@@ -177,6 +177,7 @@ $(".close").click(function() {
     var child = new Image();
     var parent = document.getElementById("tempFruit");
     child.setAttribute("src", "images/mango.png");
+
     child.setAttribute("width", "50px");
        //child.setAttribute("float", "right");
 
@@ -195,6 +196,7 @@ $(".close").click(function() {
                 $(child).toggleClass('transform-active');
                 $(child).toggleClass('fade');
                 //document.getElementById("fruit").style.display = "none";
+
                 parent.removeChild(child);
             }, 2000);
         }, 2000);
