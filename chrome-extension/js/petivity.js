@@ -1,9 +1,5 @@
-<<<<<<< HEAD:chrome-extension/js/petivity.js
-/* ----------     On new tab     ---------- */
-=======
 // Hide fruit
 document.getElementById("fruit").style.display = "none";
->>>>>>> master:chrome-extension/petivity.js
 
 // Hide "add new task" form
 newTask.style.display = "none";
@@ -20,10 +16,9 @@ for (var i = 0; i < myNodelist.length; i++) {
 // Add "close" buttons
 makeXsCloseable();
 
-<<<<<<< HEAD:chrome-extension/js/petivity.js
 
 /* ----------     Event listeners     ---------- */
-=======
+
 // Add a "selected" class to clicked list item and open the edit window
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
@@ -36,7 +31,6 @@ list.addEventListener('click', function(ev) {
         toggleEditTaskVis();
     }
 }, false);
->>>>>>> master:chrome-extension/petivity.js
 
 // Event listeners for buttons in newTask form
 document.getElementById("addButton").addEventListener("click", function() {
@@ -178,35 +172,16 @@ function insertTask(task, nodeList, daysRemaining) {
 }
 
 //to add animations any time an item is completed
-<<<<<<< HEAD:chrome-extension/js/petivity.js
-$(".close").click(function() {
-  $('#fruit').toggleClass('transform-active');
-  setTimeout(function() {
-
-    $('#fruit').toggleClass('fade');
-    setTimeout(function() {
-
-      $('#fruit').toggleClass('transform-active');
-      $('#fruit').toggleClass('fade');
-
-    }, 2000);
-  }, 2000);
-=======
 $(".close").click(function() { 
-    /*
-  var child = document.createElement("newFruit");
-      var parent = document.getElementById("fruit");
-  child.setAttribute("src", "mango.png");
-  //child.className = className;
-  //child.appendChild(textNode);
-  parent.appendChild(child);
-*/
     document.getElementById("fruit").style.display = "block";
     setTimeout(function() {
+        
         $('#fruit').toggleClass('transform-active');
         setTimeout(function() {
+
             $('#fruit').toggleClass('fade');
             setTimeout(function() {
+
                 $('#fruit').toggleClass('transform-active');
                 $('#fruit').toggleClass('fade');
                 document.getElementById("fruit").style.display = "none";
@@ -214,8 +189,6 @@ $(".close").click(function() {
             }, 2000);
         }, 2000);
     }, 500);
-
->>>>>>> master:chrome-extension/petivity.js
 });
 
 
