@@ -4,7 +4,7 @@
     "description": "Productiviy's Best Friend",
     "version": "1.0",
     "chrome_url_overrides" : {
-        "newtab": "newTab.html"
+        "newtab": "petivity.html"
     },
     "browser_action": {
         "default_icon": "icon.png",
@@ -14,5 +14,11 @@
     "permissions": [
         "activeTab",
         "storage"
-    ]
+    ],
+    "content_scripts": [{
+        "js": ["petivity.js"],
+        "css": ["petivity.css"],
+        "matches": ["*://*.google.com/_/chrome/newtab*"]
+    }],
+    "content_security_policy": "script-src 'self' https://code.jquery.com/jquery-3.2.1.slim.min.js https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js; object-src 'self'"
 }

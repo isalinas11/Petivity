@@ -1,0 +1,290 @@
+body {
+    font-family: 'Monserrat', sans-serif;
+    background: #45c4ff url("background.jpg") repeat;
+    color: white;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 8px 8px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit], input[type=button] {
+    width: 40%;
+    background-color: rgb(134, 206, 205);
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover, input[type=button]:hover {
+    background-color: rgb(185, 220, 240);
+}
+
+li {
+    border: 1px solid rgba(20, 80, 100, 0.5);
+    border-radius: 10px;
+}
+
+/* Remove margins and padding from the list */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the list items */
+ul li {
+    cursor: pointer;
+    position: relative;
+    background: #6BCBCA;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+    background: rgb(185, 220, 240);
+    color: rgb(20, 80, 100);
+}
+
+.addButton {
+    padding: 0;
+}
+
+.calendar {
+    background-color: #6BCBCA;
+    height: 70vh;
+    margin: 0 5px;
+}
+
+.calendar-arrow {
+    vertical-align: middle;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.calendar-event {
+    height: 50px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.calendar-events {
+    height: 60vh;
+    overflow-y: overlay;
+}
+
+.calendar-header {
+    padding-left: 17%;
+}
+
+.calendar-section {
+    padding: 0px;
+    margin-top: 10px;
+    background-color: #b5e4eb;
+}
+
+.checkboxes {
+    background-color: #6BCBCA;
+    height: 70vh;
+    margin: 0 5px;
+}
+
+/* Style the close button */
+.close {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 9px 6px 12px 6px;
+}
+
+.close:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.day-header {
+    font-size: 12px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.google-calendar {
+    padding: 0;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: 5px solid #b5e4eb;
+    border-radius: 2px;
+}
+
+.logo_main {
+    padding-left: 30px;
+    height: 100%;
+    width: 40%;
+}
+
+.logo_settings {
+    height: 70%;
+    width: 13%;
+    padding-right: 30px;
+    padding-top: 8px;
+}
+
+.pet {
+    background-color: gray;
+    height: 40vh;
+    margin: 0 5px;
+    margin-top: 10px;
+}
+
+.user-calendars {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*margin-top: 10px;
+    margin-bottom: 10px;*/
+    height: 35vh;
+    /*background-color: #b5e4eb;*/
+    border: 5px solid #b5e4eb;
+    border-radius: 2px;
+}
+
+.petivity-header {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px
+}
+
+.remove-padding {
+    padding: 0px;
+}
+
+.section-header {
+    font-size: 25px;
+}
+
+.task {
+    line-height: 45px;
+}
+
+.scroll-overflow {
+    height: 70%;
+    overflow-y: overlay;
+}
+
+.tasks {
+    background-color: #b5e4eb;
+    height: 38vh;
+    margin: 0 5px;
+    border: 5px solid #b5e4eb;
+    border-radius: 2px;
+}
+
+.task-header {
+    font-size: 18px;
+}
+
+.task-header-section {
+    height: 15%;
+    background-color: #6BCBCA;
+    border-bottom: 1px solid rgba(20, 80, 100, 0.5);
+}
+
+.task-add-section {
+    height: 20%;
+}
+
+.offset-task {
+    padding-left: 15%;
+    border-right: 2px solid rgba(20, 80, 100, 0.5);
+}
+
+/* Style the newTask and editTask forms */
+#newTask, #editTask {
+    z-index: 2;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 86%;
+    padding: 6px 6px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+#fruit{
+   
+    height: 50px;
+    margin-left: 70px;
+}
+
+.disappear{
+    display: hidden;
+}
+
+.appear{
+    display: block;
+}
+
+@keyframes makeDisappear{
+    0% {opacity: 1; }
+    1% {opacity: 1;}
+    100% {opacity: 0};
+    
+}
+@-webkit-keyframes makeDisappear {
+    0% {opacity: 1;}
+    95% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+
+.transform-active {
+    visibility: visible;
+    transform: translate(0px, 150px);
+    -webkit-transition: all 2s ease-out;  
+    -moz-transition: all 2s ease-out;  
+    -o-transition: all 2s ease-out;  
+    -ms-transition: all 2s ease-out;  
+    transition: all 2s ease-out;
+  
+}
+
+
+    
+
+
+
