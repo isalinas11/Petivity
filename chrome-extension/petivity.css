@@ -246,13 +246,17 @@ ul li:hover {
 }
 
 #fruit{
-    display: block;
+   
     height: 50px;
-
+    margin-left: 70px;
 }
 
 .disappear{
-    display: none;
+    display: hidden;
+}
+
+.appear{
+    display: block;
 }
 
 @keyframes makeDisappear{
@@ -269,6 +273,7 @@ ul li:hover {
 
 
 .transform-active {
+    visibility: visible;
     transform: translate(0px, 150px);
     -webkit-transition: all 2s ease-out;  
     -moz-transition: all 2s ease-out;  
