@@ -1,5 +1,4 @@
-// Hide fruit
-document.getElementById("fruit").style.display = "none";
+
 
 // Hide "add new task" form
 newTask.style.display = "none";
@@ -173,22 +172,37 @@ function insertTask(task, nodeList, daysRemaining) {
 
 //to add animations any time an item is completed
 $(".close").click(function() { 
-    document.getElementById("fruit").style.display = "block";
+
+//for the fruit
+    var child = new Image();
+    var parent = document.getElementById("tempFruit");
+    child.setAttribute("src", "images/mango.png");
+
+    child.setAttribute("width", "50px");
+       //child.setAttribute("float", "right");
+
+    parent.appendChild(child);
+   // console.log(parent);
+
+    child.style.display = "block";
+    
+    console.log(child);
+
     setTimeout(function() {
-        
-        $('#fruit').toggleClass('transform-active');
+        $(child).toggleClass('transform-active');
         setTimeout(function() {
-
-            $('#fruit').toggleClass('fade');
+            $(child).toggleClass('fade');
             setTimeout(function() {
+                $(child).toggleClass('transform-active');
+                $(child).toggleClass('fade');
+                //document.getElementById("fruit").style.display = "none";
 
-                $('#fruit').toggleClass('transform-active');
-                $('#fruit').toggleClass('fade');
-                document.getElementById("fruit").style.display = "none";
-
+                parent.removeChild(child);
             }, 2000);
         }, 2000);
     }, 500);
+
+
 });
 
 
