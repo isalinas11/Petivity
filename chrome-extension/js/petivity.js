@@ -1,3 +1,5 @@
+/* ----------     On new tab     ---------- */
+
 // Hide "add new task" form
 newTask.style.display = "none";
 
@@ -10,21 +12,11 @@ for (var i = 0; i < myNodelist.length; i++) {
   addTextElement(myNodelist[i], "span", "close", "\u00D7");
 }
 
-// Give closing functionality to "close" buttons
+// Add "close" buttons
 makeXsCloseable();
 
-// Add a "selected" class to clicked list item and open the edit window
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
-    ev.target.classList.toggle('selected');
-    document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
-                                                        .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
-    document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
-                                                             .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
-    toggleEditTaskVis();
-  }
-}, false);
+
+/* ----------     Event listeners     ---------- */
 
 // Event listeners for buttons in newTask form
 document.getElementById("addButton").addEventListener("click", function() {
@@ -48,6 +40,21 @@ document.getElementById("cancelEdit").addEventListener("click", function() {
   cancelEdit();
 });
 
+// Open the edit task window; Adds a "selected" class to list items when clicked
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
+    ev.target.classList.toggle('selected');
+    document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
+                                                        .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
+    document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
+                                                             .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
+    toggleEditTaskVis();
+  }
+}, false);
+
+
+/* ----------    Functions     ---------- */
 
 // Appends textNode to tagged element to parent node
 function addTextElement(parent, tag, className, text) {
@@ -71,8 +78,8 @@ function makeXsCloseable() {
 
 // Toggles visibility of form to add new task
 function toggleAddTaskVis() {
-    var newTask = document.getElementById("newTask");
-    toggleVisibility(newTask);
+  var newTask = document.getElementById("newTask");
+  toggleVisibility(newTask);
 }
 
 // Toggles visibility of form to edit existing task
@@ -92,7 +99,7 @@ function toggleVisibility(task) {
 
 // Hit the cancel button when editing an task
 function cancelEdit() {
-    document.getElementsByClassName('selected')[0].classList.toggle("selected");
+  document.getElementsByClassName('selected')[0].classList.toggle("selected");
 }
 
 // Edit an item
@@ -152,32 +159,17 @@ function insertTask(task, nodeList, daysRemaining) {
 
 //to add animations any time an item is completed
 $(".close").click(function() {
-    /*if($("#fruit").hasClass('disappear')){
-              $('#fruit').removeClass('disappear');
-
-    }*/
-      $('#fruit').toggleClass('transform-active');
-      setTimeout(function() {
-        $('#fruit').toggleClass('fade');
-        setTimeout(function() {
-          $('#fruit').toggleClass('transform-active');
-          $('#fruit').toggleClass('fade');
-        }, 2000);
-      }, 2000);
-      
-      
-
-
-    /**
-    if($("#fruit").hasClass('transform-active')){
-          $('#fruit').removeClass('transform-active');
-      //$('#fruit').toggleClass('disappear')
-    }
-    // $('#fruit').removeClass('disappear');
   $('#fruit').toggleClass('transform-active');
-  */
-    
- 
+  setTimeout(function() {
+
+    $('#fruit').toggleClass('fade');
+    setTimeout(function() {
+
+      $('#fruit').toggleClass('transform-active');
+      $('#fruit').toggleClass('fade');
+
+    }, 2000);
+  }, 2000);
 });
 
 
