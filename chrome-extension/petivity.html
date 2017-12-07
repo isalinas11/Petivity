@@ -19,8 +19,8 @@
         </div>
 
         <div class="row">
-            <div class="col-8 section-header calendar-header">CALENDAR</div>
-            <div class="col-4 section-header" style="padding-left: 23px">TO DO:</div>
+            <div class="col-8 section-header calendar-header" style="font-weight: bold;">Calendar</div>
+            <div class="col-4 section-header" style="padding-left: 23px; font-weight: bold;">To Do</div>
         </div>
 
         <div class="row">
@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
                     <div class="col-2"></div>
-                    <div class="col-9"><button type="button" class="btn btn-default" style="margin-top: 5px;">Start Blocking Now</button></div>
+                    <div class="col-9"><button type="button" class="btn btn-info" style="margin-top: 5px;">Start Blocking Now</button></div>
                 </div>
             </div>
 
@@ -79,9 +79,10 @@
                 <div class="row tasks">
                     <div class="col-12">
                         <div class="row task-header-section">
-                            <div class="col-2 remove-padding"></div>
-                            <div class="col-7 remove-padding text-center task-header"><label>Tasks</label></div>
-                            <div class="col-3 remove-padding text-center day-header"><label>Days Remaining</label></div>
+                            <div class="col-9 remove-padding text-center task-header"><label style="font-weight: bold;">Tasks</label></div>
+                            <div class="col-3 remove-padding text-center day-header">
+                                <label class="scrollbar-offset" style="font-weight: bold;">Days Remaining</label>
+                            </div>
                         </div>
                         <div class="row scroll-overflow">
                             <div id="editTask">
@@ -143,9 +144,8 @@
                 </div>
 
                     <div class="row pet">
-                        <div id = "tempFruit">
-                        </div>
-
+                        <span id = "tempFruit"></span>
+                        <img class="main-pet" src="images/main-pet.png" alt="pet crab">
                     </div>
                 </div>
 

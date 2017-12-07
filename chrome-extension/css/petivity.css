@@ -1,6 +1,6 @@
 body {
     font-family: 'Monserrat', sans-serif;
-    background: #45c4ff url("/images/background.jpg") repeat;
+    background: #45c4ff url("../images/background3.jpg") repeat;
     color: white;
 }
 
@@ -122,6 +122,10 @@ ul li:hover {
     font-size: 12px;
 }
 
+.scrollbar-offset {
+    padding-right: 30px;
+}
+
 .full-width {
     width: 100%;
 }
@@ -148,7 +152,6 @@ ul li:hover {
 }
 
 .pet {
-    background-color: gray;
     height: 40vh;
     margin: 0 5px;
     margin-top: 10px;
@@ -185,7 +188,7 @@ ul li:hover {
 
 .scroll-overflow {
     height: 70%;
-    overflow-y: overlay;
+    overflow-y: scroll;
 }
 
 .tasks {
@@ -245,14 +248,23 @@ ul li:hover {
     border-color: #ccc;
 }
 
+
+#tempFruit {
+    position: absolute;
+}
+
 .transform-active {
     visibility: visible;
     transform: translate(0px, 150px);
-    -webkit-transition: all 2s ease-out;  
-    -moz-transition: all 2s ease-out;  
-    -o-transition: all 2s ease-out;  
-    -ms-transition: all 2s ease-out;  
-    transition: all 2s ease-out;  
+    -webkit-transition: all 2s ease-out;
+    -moz-transition: all 2s ease-out;
+    -o-transition: all 2s ease-out;
+    -ms-transition: all 2s ease-out;
+    transition: all 2s ease-out;
+}
+
+.main-pet {
+    height: 100%;
 }
 
 .transform-scale {
@@ -282,8 +294,4 @@ ul li:hover {
 	transform-origin:70% 70%;
 	animation-iteration-count: 5;
 	animation-timing-function: linear;
-}
-
-#tempFruit{
-    position:absolute;
 }
