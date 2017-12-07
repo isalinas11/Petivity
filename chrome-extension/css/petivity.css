@@ -295,3 +295,9 @@ ul li:hover {
 	animation-iteration-count: 5;
 	animation-timing-function: linear;
 }
+
+#overlay{
+    background-color: mediumpurple;
+    width: 50px;
+    height: 20px;
+}

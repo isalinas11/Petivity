@@ -56,14 +56,14 @@ document.getElementById("cancelEdit").addEventListener("click", function() {
 // Open the edit task window; Adds a "selected" class to list items when clicked
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
-    ev.target.classList.toggle('selected');
-    document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
-                                                        .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
-    document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
-                                                             .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
-    toggleEditTaskVis();
-  }
+    if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
+        ev.target.classList.toggle('selected');
+        document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
+            .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
+        document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
+            .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
+        toggleEditTaskVis();
+    }
 }, false);
 
 
@@ -91,8 +91,8 @@ function makeXsCloseable() {
 
 // Toggles visibility of form to add new task
 function toggleAddTaskVis() {
-  var newTask = document.getElementById("newTask");
-  toggleVisibility(newTask);
+    var newTask = document.getElementById("newTask");
+    toggleVisibility(newTask);
 }
 
 // Toggles visibility of form to edit existing task
@@ -112,7 +112,7 @@ function toggleVisibility(task) {
 
 // Hit the cancel button when editing an task
 function cancelEdit() {
-  document.getElementsByClassName('selected')[0].classList.toggle("selected");
+    document.getElementsByClassName('selected')[0].classList.toggle("selected");
 }
 
 // Edit an item
@@ -210,7 +210,7 @@ $(".close").click(function() {
                 $(child).toggleClass('transform-active');
                 $(child).toggleClass('fade');
                 parent.removeChild(child);
-                  parent.appendChild(heart);
+                parent.appendChild(heart);
                 //happens second to last
                 setTimeout(function() {
                     $(heart).toggleClass('pulse');
@@ -225,3 +225,55 @@ $(".close").click(function() {
 
 
 });
+
+
+//$("selfCare").on("change", function() {
+//var counter = 0;
+var selfCareOn = false;
+var blockOn = false;
+var calOn = true;
+showSpecificCal = function(blockOrCare){
+
+    /////CHANGE TO MAKE DEFAULT CHECKED ON
+    if(blockOrCare === "calend"){
+        if(calOn === true){
+            calOn = false;
+        } else{
+            calOn = true;
+        }
+    }
+    //if calendar is unchecked show a blank calendar
+    if(calOn === false){
+        cal.setAttribute("src", "https://calendar.google.com/calendar/embed?src=cs.stanford.edu_n4hndha5isd8ba25h3qk9n3lr4%40group.calendar.google.com&ctz=America%2FLos_Angeles");
+        return;
+    }
+    
+    if(blockOrCare === "block"){
+        if(blockOn === true){
+            blockOn = false;
+        } else{
+            blockOn = true;
+        }
+
+    }else if(blockOrCare === "selfCare"){
+        if(selfCareOn === true){
+            selfCareOn = false;
+        } else{
+            selfCareOn = true;
+        }
+    }
+
+    var cal =  document.getElementById("gooCal");
+
+    //show both self care and blocking
+    if(selfCareOn ===true && blockOn === true){
+        cal.setAttribute("src", "https://calendar.google.com/calendar/embed?src=cs.stanford.edu_n4hndha5isd8ba25h3qk9n3lr4%40group.calendar.google.com&ctz=America%2FLos_Angeles");
+        //show only self care
+    }else if(selfCareOn ===true){
+        cal.setAttribute("src", "https://calendar.google.com/calendar/embed?src=cs.stanford.edu_n4hndha5isd8ba25h3qk9n3lr4%40group.calendar.google.com&ctz=America%2FLos_Angeles");
+        //show only blocking
+    }else if(blockOn === true){
+        cal.setAttribute("src", "https://calendar.google.com/calendar/embed?src=cs.stanford.edu_n4hndha5isd8ba25h3qk9n3lr4%40group.calendar.google.com&ctz=America%2FLos_Angeles");
+    }
+};
+//);
