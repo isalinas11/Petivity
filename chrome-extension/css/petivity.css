@@ -248,28 +248,9 @@ ul li:hover {
     border-color: #ccc;
 }
 
+
 #tempFruit {
     position: absolute;
-}
-
-.disappear{
-    display: hidden;
-}
-
-.appear{
-    display: block;
-}
-
-@keyframes makeDisappear{
-    0% {opacity: 1; }
-    1% {opacity: 1;}
-    100% {opacity: 0};
-
-}
-@-webkit-keyframes makeDisappear {
-    0% {opacity: 1;}
-    95% {opacity: 1;}
-    100% {opacity: 0;}
 }
 
 .transform-active {
@@ -284,4 +265,33 @@ ul li:hover {
 
 .main-pet {
     height: 100%;
+}
+
+.transform-scale {
+    visibility: visible;
+    transform: scale(2.0);
+    -webkit-transition: fade 2s ease-in-out;  
+    -moz-transition: fade 2s ease-in-out;  
+    -o-transition: fade 2s ease-in-out;  
+    -ms-transition: fade 2s ease-in-out;  
+    transition: fade 2s ease-in-out;  
+}
+
+@keyframes pulse_animation {
+	0% { transform: scale(1); }
+	30% { transform: scale(1); }
+	40% { transform: scale(1.20); }
+	50% { transform: scale(1); }
+	60% { transform: scale(1); }
+	70% { transform: scale(1.15); }
+	80% { transform: scale(1); }
+	100% { transform: scale(1); }
+}
+
+.pulse {
+	animation-name: pulse_animation;
+	animation-duration: 5000ms;
+	transform-origin:70% 70%;
+	animation-iteration-count: 5;
+	animation-timing-function: linear;
 }
