@@ -173,32 +173,53 @@ function insertTask(task, nodeList, daysRemaining) {
 //to add animations any time an item is completed
 $(".close").click(function() { 
 
-//for the fruit
+    //for the fruit
     var child = new Image();
     var parent = document.getElementById("tempFruit");
     child.setAttribute("src", "images/mango.png");
-
     child.setAttribute("width", "50px");
-       //child.setAttribute("float", "right");
-
+    child.style.marginLeft = "70px";
+    //child.setAttribute("float", "right");
     parent.appendChild(child);
-   // console.log(parent);
-
+    // console.log(parent);
     child.style.display = "block";
-    
-    console.log(child);
 
+    //for the heart
+
+    var heart = new Image();
+    heart.setAttribute("src", "images/heart.png");
+    heart.setAttribute("width", "50px");
+    //child.setAttribute("float", "right");
+
+    // console.log(parent);
+    heart.style.display = "block";
+    heart.style.marginLeft = "270px";
+    heart.style.marginTop = "30px";
+
+    // console.log(child); 
+
+    //happens first
     setTimeout(function() {
         $(child).toggleClass('transform-active');
+        //happens second
         setTimeout(function() {
             $(child).toggleClass('fade');
+            $(heart).toggleClass('tranform-scale');
+            //happens third to last
             setTimeout(function() {
                 $(child).toggleClass('transform-active');
                 $(child).toggleClass('fade');
-                //document.getElementById("fruit").style.display = "none";
-
                 parent.removeChild(child);
-            }, 2000);
+                  parent.appendChild(heart);
+                //happens second to last
+                setTimeout(function() {
+                    $(heart).toggleClass('pulse');
+                    // happens last
+                    setTimeout(function() {
+                        parent.removeChild(heart);
+                    }, 5000);
+                }, 2000);
+            }, 1500);
         }, 2000);
     }, 500);
 
