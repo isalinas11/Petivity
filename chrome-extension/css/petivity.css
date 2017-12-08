@@ -129,8 +129,9 @@ ul li:hover {
 }
 
 .fc td, .fc th {
-  border-right: none !important;
-  border-left: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    /*border: none !important;*/
 }
 
 .google-calendar {
@@ -140,6 +141,10 @@ ul li:hover {
     margin-right: 1%;
     border: 5px solid #b5e4eb;
     border-radius: 2px;
+}
+
+.suggestions {
+    background-color: rgb(255, 0, 0);
 }
 
 .pet {
