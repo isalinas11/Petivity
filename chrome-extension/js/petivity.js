@@ -174,7 +174,7 @@ $(".close").click(function() {
     var parent = document.getElementById("tempFruit");
     child.setAttribute("src", "images/mango.png");
     child.setAttribute("width", "50px");
-    child.style.marginLeft = "70px";
+    child.style.marginLeft = "180px";
     //child.setAttribute("float", "right");
     parent.appendChild(child);
     // console.log(parent);
@@ -189,8 +189,8 @@ $(".close").click(function() {
 
     // console.log(parent);
     heart.style.display = "block";
-    heart.style.marginLeft = "270px";
-    heart.style.marginTop = "30px";
+    heart.style.marginLeft = "220px";
+    heart.style.marginTop = "70px";
 
     // console.log(child); 
 

@@ -136,7 +136,7 @@ ul li:hover {
 
 .google-calendar {
     padding: 10px;
-    background-color: #6BCBCA;
+    background-color: #82D0D0;
     margin-left: 1%;
     margin-right: 1%;
     border: 5px solid #b5e4eb;
@@ -278,7 +278,7 @@ ul li:hover {
 
 .transform-active {
     visibility: visible;
-    transform: translate(0px, 150px);
+    transform: translate(0px, 194px);
     -webkit-transition: all 2s ease-out;
     -moz-transition: all 2s ease-out;
     -o-transition: all 2s ease-out;
@@ -287,6 +287,7 @@ ul li:hover {
 }
 
 .main-pet {
+    margin-top: 6px;
     height: 100%;
 }
 

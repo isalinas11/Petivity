@@ -133,6 +133,7 @@ ul li {
 }
 
 .pet-header {
+    color: white;
     line-height: 10vh;
 }
 
@@ -147,6 +148,7 @@ ul li {
 }
 
 .section-header {
+    color: white;
     padding-top: 25px;
     padding-bottom: 25px;
     font-size: 28px;

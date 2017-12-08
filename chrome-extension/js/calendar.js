@@ -8,8 +8,8 @@
     };
     var suggestions_calendar = { 
         googleCalendarId: '9kusj9b84jlt7jue931o6ifuno@group.calendar.google.com',
-        color: 'rgb(250, 10, 10)',
-        textColor: 'black',
+        color: '#29a725',
+        // textColor: 'black',
         className: 'suggestions_calendar'
     };
     var blocking_calendar = { 
