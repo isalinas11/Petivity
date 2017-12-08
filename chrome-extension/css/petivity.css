@@ -124,16 +124,18 @@ ul li:hover {
     font-size: 12px;
 }
 
-.scrollbar-offset {
-    padding-right: 30px;
-}
-
 .full-width {
     width: 100%;
 }
 
+.fc td, .fc th {
+  border-right: none !important;
+  border-left: none !important;
+}
+
 .google-calendar {
-    padding: 0;
+    padding: 10px;
+    background-color: #6BCBCA;
     margin-left: 1%;
     margin-right: 1%;
     border: 5px solid #b5e4eb;
@@ -165,6 +167,10 @@ ul li:hover {
 
 .remove-padding {
     padding: 0px;
+}
+
+.scrollbar-offset {
+    padding-right: 30px;
 }
 
 .section-header {
