@@ -1,7 +1,60 @@
 body {
     font-family: 'Monserrat', sans-serif;
-    background-color: #45c4ff;
+    background: #45c4ff url("/images/background.jpg") repeat;
     color: white;
+}
+
+button[type=button] {
+    margin-left: 2px;
+}
+
+input[type=text] {
+    padding: 6px;
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+ul {
+    margin: 0;
+    padding-top: 0;
+}
+
+/* Style the list items */
+ul li {
+    line-height: 5vh;
+    background-color: #b5e4eb;
+    cursor: pointer;
+    position: relative;
+    font-size: 18px;
+    color: #249bd2;
+    transition: 0.2s;
+
+    border: 2px solid #82cece;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 8%;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.addInput {
+    display: flex;
+    text-align: right;
+    width: 100%;
+
+}
+
+.back-arrow {
+    padding-left: 30px;
+    height: 50px;
 }
 
 .blocked-sites {
@@ -14,14 +67,24 @@ body {
     border-color: #82cece;
 }
 
-.section-header {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    font-size: 28px;
+/* Style the close button */
+.close {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px 6px 6px 6px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
-.pet-header {
-    height: 10vh;
+.close:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.full-width {
+    width: 100%;
 }
 
 .interests {
@@ -33,30 +96,15 @@ body {
     border-color: #82cece;
 }
 
-.pets {
-    height: 30vh;
-    font-size: 18px;
-    background-color: #b5e4eb;
-    border-style: solid;
-    border-width: 10px;
-    border-color: #82cece;
-}
-
-.site-list-item {
-    height: 5vh;
-    background-color: #b5e4eb;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #82cece;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.offset {
+    padding-left: 15%;
+    border-right: 2px solid rgba(20, 80, 100, 0.5);
 }
 
 .no-bullets {
     list-style: none;
     padding: 0;
+    padding-top: 5px;
 }
 
 .pet-image-selected {
@@ -75,7 +123,31 @@ body {
     border-color: #676767;
 }
 
-.back-arrow {
-    padding-left: 30px;
-    height: 50px;
+.pets {
+    height: 30vh;
+    font-size: 18px;
+    background-color: #b5e4eb;
+    border-style: solid;
+    border-width: 10px;
+    border-color: #82cece;
+}
+
+.pet-header {
+    line-height: 10vh;
+}
+
+.scroll-interests {
+    height: 85%;
+    overflow-y: overlay;
+}
+
+.scroll-sites {
+    height: 92.75%;
+    overflow-y: overlay;
+}
+
+.section-header {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 28px;
 }

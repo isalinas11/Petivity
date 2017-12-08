@@ -1,10 +1,8 @@
-
-
 // Hide "add new task" form
-newTask.style.display = "none";
+document.getElementById("newTask").style.display = "none";
 
 // Hide "edit task" form
-editTask.style.display = "none";
+document.getElementById("editTask").style.display = "none";
 
 // Create a "close" button and append it to each list item
 var myNodelist = document.getElementsByTagName("LI");
@@ -27,20 +25,20 @@ list.addEventListener('click', function(ev) {
             .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
         document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
             .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
-        toggleEditTaskVis();
+        toggleEditTask();
     }
 }, false);
 
 // Event listeners for buttons in newTask form
-document.getElementById("addButton").addEventListener("click", function() {
-    toggleAddTaskVis();
-});
 document.getElementById("newElement").addEventListener("click", event => {
     event.preventDefault();
     newElement();
 });
+document.getElementById("addButton").addEventListener("click", function() {
+    toggleAddTask();
+});
 document.getElementById("cancelAdd").addEventListener("click", function() {
-    toggleAddTaskVis();
+    toggleAddTask();
 });
 
 // Event listeners for buttons in editTask form
@@ -49,21 +47,21 @@ document.getElementById("editElement").addEventListener("click", event => {
     editElement();
 });
 document.getElementById("cancelEdit").addEventListener("click", function() {
-    toggleEditTaskVis();
+    toggleEditTask();
     cancelEdit();
 });
 
 // Open the edit task window; Adds a "selected" class to list items when clicked
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
-    if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
-        ev.target.classList.toggle('selected');
-        document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
-            .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
-        document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
-            .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
-        toggleEditTaskVis();
-    }
+  if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
+    ev.target.classList.toggle('selected');
+    document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
+                                                        .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
+    document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
+                                                             .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
+    toggleEditTask();
+  }
 }, false);
 
 
@@ -96,12 +94,12 @@ function toggleAddTaskVis() {
 }
 
 // Toggles visibility of form to edit existing task
-function toggleEditTaskVis() {
+function toggleEditTask() {
     var editTask = document.getElementById("editTask");
     toggleVisibility(editTask);
 }
 
-// Helper function for the toggleAddTaskVis and toggleEditTaskVis functions
+// Helper function for the toggleAddTask and toggleEditTask functions
 function toggleVisibility(task) {
     if (task.style.display == "none") {
         task.style.display = "block";
@@ -133,7 +131,7 @@ function editElement() {
 
     document.getElementById("taskname").value = "";
     document.getElementById("daysremaining").value = "";
-    toggleEditTaskVis();
+    toggleEditTask();
 }
 
 // Create a new list item when clicking on the "Add" button
@@ -153,7 +151,7 @@ function newElement() {
 
     document.getElementById("new_taskname").value = "";
     document.getElementById("new_daysremaining").value = "";
-    toggleAddTaskVis();
+    toggleAddTask();
 }
 
 // Inserts task into to-do list by order of days remaining
