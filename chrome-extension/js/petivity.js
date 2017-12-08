@@ -88,9 +88,9 @@ function makeXsCloseable() {
 }
 
 // Toggles visibility of form to add new task
-function toggleAddTask() {
-  var newTask = document.getElementById("newTask");
-  toggleVisibility(newTask);
+function toggleAddTaskVis() {
+    var newTask = document.getElementById("newTask");
+    toggleVisibility(newTask);
 }
 
 // Toggles visibility of form to edit existing task
@@ -110,7 +110,7 @@ function toggleVisibility(task) {
 
 // Hit the cancel button when editing an task
 function cancelEdit() {
-  document.getElementsByClassName('selected')[0].classList.toggle("selected");
+    document.getElementsByClassName('selected')[0].classList.toggle("selected");
 }
 
 // Edit an item
@@ -171,34 +171,107 @@ function insertTask(task, nodeList, daysRemaining) {
 //to add animations any time an item is completed
 $(".close").click(function() { 
 
-//for the fruit
+    //for the fruit
     var child = new Image();
     var parent = document.getElementById("tempFruit");
     child.setAttribute("src", "images/mango.png");
-
     child.setAttribute("width", "50px");
-       //child.setAttribute("float", "right");
-
+    child.style.marginLeft = "70px";
+    //child.setAttribute("float", "right");
     parent.appendChild(child);
-   // console.log(parent);
-
+    // console.log(parent);
     child.style.display = "block";
-    
-    console.log(child);
 
+    //for the heart
+
+    var heart = new Image();
+    heart.setAttribute("src", "images/heart.png");
+    heart.setAttribute("width", "50px");
+    //child.setAttribute("float", "right");
+
+    // console.log(parent);
+    heart.style.display = "block";
+    heart.style.marginLeft = "270px";
+    heart.style.marginTop = "30px";
+
+    // console.log(child); 
+
+    //happens first
     setTimeout(function() {
         $(child).toggleClass('transform-active');
+        //happens second
         setTimeout(function() {
             $(child).toggleClass('fade');
+            $(heart).toggleClass('tranform-scale');
+            //happens third to last
             setTimeout(function() {
                 $(child).toggleClass('transform-active');
                 $(child).toggleClass('fade');
-                //document.getElementById("fruit").style.display = "none";
-
                 parent.removeChild(child);
-            }, 2000);
+                parent.appendChild(heart);
+                //happens second to last
+                setTimeout(function() {
+                    $(heart).toggleClass('pulse');
+                    // happens last
+                    setTimeout(function() {
+                        parent.removeChild(heart);
+                    }, 5000);
+                }, 2000);
+            }, 1500);
         }, 2000);
     }, 500);
 
 
 });
+
+
+//$("selfCare").on("change", function() {
+//var counter = 0;
+var selfCareOn = false;
+var blockOn = false;
+var calOn = true;
+showSpecificCal = function(blockOrCare){
+
+    /////CHANGE TO MAKE DEFAULT CHECKED ON
+    if(blockOrCare === "calend"){
+        if(calOn === true){
+            calOn = false;
+        } else{
+            calOn = true;
+        }
+    }
+    //if calendar is unchecked show a blank calendar
+    if(calOn === false){
+        cal.setAttribute("src", "https://calendar.google.com/calendar/embed?src=cs.stanford.edu_n4hndha5isd8ba25h3qk9n3lr4%40group.calendar.google.com&ctz=America%2FLos_Angeles");
+        return;
+    }
+    
+    if(blockOrCare === "block"){
+        if(blockOn === true){
+            blockOn = false;
+        } else{
+            blockOn = true;
+        }
+
+    }else if(blockOrCare === "selfCare"){
+        if(selfCareOn === true){
+            selfCareOn = false;
+        } else{
+            selfCareOn = true;
+        }
+    }
+
+    var cal =  document.getElementById("gooCal");
+
+    //show both self care and blocking
+    if(selfCareOn ===true && blockOn === true){
+        cal.setAttribute("src", "https://calendar.google.com/calendar/embed?src=cs.stanford.edu_n4hndha5isd8ba25h3qk9n3lr4%40group.calendar.google.com&ctz=America%2FLos_Angeles");
+        //show only self care
+    }else if(selfCareOn ===true){
+        cal.setAttribute("src", "https://calendar.google.com/calendar/embed?src=cs.stanford.edu_n4hndha5isd8ba25h3qk9n3lr4%40group.calendar.google.com&ctz=America%2FLos_Angeles");
+        //show only blocking
+    }else if(blockOn === true){
+        cal.setAttribute("src", "https://calendar.google.com/calendar/embed?src=cs.stanford.edu_n4hndha5isd8ba25h3qk9n3lr4%40group.calendar.google.com&ctz=America%2FLos_Angeles");
+    }
+};
+//);

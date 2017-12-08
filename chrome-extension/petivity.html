@@ -16,13 +16,13 @@
         <div class="row">
             <div class="col-6 petivity-header"><img src="images/logo.png" id="logo_main"></div>
             <div class="col-6 petivity-header text-right">
-                <div class="settings"><img src="images/settings.png" id="settings_icon"></div></div>
+                <div class="settings"><img src="images/settings.png" id="settings_icon"></div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-8 section-header calendar-header">CALENDAR</div>
-            <div class="col-4 section-header" style="padding-left: 23px">TO DO:</div>
+            <div class="col-8 section-header calendar-header" style="font-weight: bold;">Calendar</div>
+            <div class="col-4 section-header" style="padding-left: 23px; font-weight: bold;">To Do</div>
         </div>
 
         <div class="row">
@@ -36,7 +36,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-12 remove-padding">
                                         <div class="row">
-                                            <div class="col-3 remove-padding text-center"><input type="checkbox"></div>
+                                            <div class="col-3 remove-padding text-center"><input type="checkbox" onchange = "showSpecificCal('selfCare')"></div>
                                             <div class="col-9 remove-padding">self-care calendar</div>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-12 remove-padding">
                                         <div class="row">
-                                            <div class="col-3 remove-padding text-center"><input type="checkbox"></div>
+                                            <div class="col-3 remove-padding text-center"><input type="checkbox" onchange = "showSpecificCal('block')"></div>
                                             <div class="col-9 remove-padding">scheduled blocking times</div>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-12 remove-padding">
                                         <div class="row">
-                                            <div class="col-3 remove-padding text-center"><input type="checkbox"></div>
+                                            <div class="col-3 remove-padding text-center"><input type="checkbox" onchange = "showSpecificCal('calend')" checked></div>
                                             <div class="col-9 remove-padding">my calendar</div>
                                         </div>
                                     </div>
@@ -73,7 +73,9 @@
                 </div>
                 <div class="row">
                     <div class="col-2"></div>
-                    <div class="col-9"><button type="button" id="start_blocking_button" class="btn btn-default" style="margin-top: 5px;">Start Blocking Now</button></div>
+                    <div class="col-9">
+                        <button type="button" id="start_blocking_button" class="btn btn-default" style="margin-top: 5px;">Start Blocking Now</button>
+                    </div>
                 </div>
             </div>
 
@@ -81,9 +83,10 @@
                 <div class="row tasks">
                     <div class="col-12">
                         <div class="row task-header-section">
-                            <div class="col-2 remove-padding"></div>
-                            <div class="col-7 remove-padding text-center task-header"><label>Tasks</label></div>
-                            <div class="col-3 remove-padding text-center day-header"><label>Days Remaining</label></div>
+                            <div class="col-9 remove-padding text-center task-header"><label style="font-weight: bold;">Tasks</label></div>
+                            <div class="col-3 remove-padding text-center day-header">
+                                <label class="scrollbar-offset" style="font-weight: bold;">Days Remaining</label>
+                            </div>
                         </div>
                         <div class="row scroll-overflow">
                             <div id="editTask">
@@ -144,18 +147,17 @@
                     </div>
                 </div>
 
-                    <div class="row pet">
-                        <div id = "tempFruit">
-                        </div>
-
-                    </div>
+                <div class="row pet">
+                    <span id = "tempFruit"></span>
+                    <img class="main-pet" src="images/main-pet.png" alt="pet crab">
                 </div>
-
-                <!-- Bootstrap JS files: jQuery first, then Popper.js, then Bootstrap JS -->
-                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-                <script type="text/javascript" src="js/blocking.js"></script>
-                <script type="text/javascript" src="js/petivity.js"></script>
+            </div>
+            <!-- Bootstrap JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="js/blocking.js"></script>
+            <script type="text/javascript" src="js/petivity.js"></script>
+        </div>
     </body>
 </html>
