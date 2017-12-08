@@ -13,10 +13,11 @@
     },
     "permissions": [
         "activeTab",
-        "storage"
+        "storage",
+        "tabs"
     ],
     "content_scripts": [{
-        "js": ["js/petivity.js", "js/blocked.js"],
+        "js": ["js/petivity.js", "js/settings.js", "js/blocking.js"],
         "css": ["css/petivity.css"],
         "matches": ["*://*.google.com/_/chrome/newtab*"]
     }],

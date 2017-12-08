@@ -9,66 +9,58 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-        <link href="css/petivity-settings.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="css/petivity-settings.css">
     </head>
-
     <body>
         <div class="row no-gutters">
-            <div class="col-1 section-header">
-                <img class="back-arrow" src="images/back-arrow.png" alt="back arrow">
-            </div>
-            <div class="col-5 section-header">
-                <div>Blocked sites</div>
+            <div class="col-6 section-header" style="padding-left: 4.5%;">
+                <label>Blocked sites</label>
                 <div class="row no-gutters">
                     <div class="col-12">
                         <div class="blocked-sites">
-                            <ul class="no-bullets">
-                                <li class="site-list-item">
-                                    <input type="checkbox">
-                                    www.tumblr.com
-                                </li>
-                                <li class="site-list-item">
-                                    <input type="checkbox">
-                                    www.facebook.com
-                                </li>
-                                <li class="site-list-item">
-                                    <input type="checkbox">
-                                    www.youtube.com
-                                </li>
-                            </ul>
+                            <ul id="siteList" class="no-bullets scroll-sites"></ul>
+                            <div class="row">
+                                <div class="col-12 addButton">
+                                    <div id="newSite" class="addInput">
+                                        <input id="addSiteInput" type="text" id="siteInput">
+                                        <button id="addSite" type="button" class="btn btn-info">Add</button>
+                                        <button id="cancelAddSite" type="button" class="btn btn-info">Cancel</button>
+                                    </div>
+                                    <button id="addSiteButton" class="btn btn-info full-width">Add Site to Blocking List</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-5 section-header">
-                <div>Interests</div>
-
+            <div class="col-6 section-header" style="padding-right: 4.5%;">
+                <label>Interests</label>
                 <div class="row no-gutters">
                     <div class="col-12">
                         <div class="interests">
-                            <ul class="no-bullets">
-                                <li class="site-list-item">
-                                    X Swimming
-                                </li>
-                                <li class="site-list-item">
-                                    X Dancing
-                                </li>
-                                <li class="site-list-item">
-                                    X Movies
-                                </li>
+                            <ul id="interestList" class="no-bullets scroll-interests">
+                                <li>Swimming</li>
+                                <li>Dancing</li>
+                                <li>Movies</li>
                             </ul>
+                            <div class="row">
+                                <div class="col-12 addButton">
+                                    <div id="newInterest" class="addInput">
+                                        <input id="addInterestInput" type="text" id="siteInput">
+                                        <button id="addInterest" type="button" class="btn btn-info">Add</button>
+                                        <button id="cancelAddInterest" type="button" class="btn btn-info">Cancel</button>
+                                    </div>
+                                    <button id="addInterestButton" class="btn btn-info full-width">Add Interest</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="row no-gutters">
                     <div class="col-12">
-                        <div class="pet-header">
-                            Pets
-                        </div>
+                        <div class="pet-header">Pets</div>
                     </div>
                 </div>
-
                 <div class="row no-gutters">
                     <div class="col-12">
                         <div class="pets">
@@ -78,10 +70,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-            <div class="col-1"></div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/blocking.js"></script>
+        <script type="text/javascript" src="js/settings.js"></script>
     </body>
 
 </html>

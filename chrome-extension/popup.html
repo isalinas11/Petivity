@@ -2,19 +2,22 @@
 
 <html>
   <head>
-    <title>Petivity</title>
-    <script src="js/blocked.js"></script>
+    <title>Petivity Popup</title>
+    <link rel="stylesheet" type="text/css"/ href="css/blocked.css">
   </head>
-
-  <body>
-    <div id="container" style="white-space: nowrap;">
-      <div id="toggle_site_blocking">
-        <button id='block_sites_button' class='lg_button'></button>
+  <body style="background-image: url('images/background.jpg');">
+    <div>
+      <div>
+        <button id='start_blocking_button' class='grey large_button'>Start Blocking Now</button>
       </div>
-      <div id="block_this_site">
-        <button id='block_this_site_button' class='grey med_button'>Block this site</button>
+      <div>
+        <button id='block_this_site_button' class='grey medium_button'>Block this site</button>
       </div>
+      <label><br/>Press the sites below to remove:</label>
+      <label><br/>___________________________________</label>
       <div id="blocked_sites"></div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/blocking.js"></script>
   </body>
 </html>
