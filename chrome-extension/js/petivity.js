@@ -17,14 +17,13 @@ makeXsCloseable();
 /* ----------     Event listeners     ---------- */
 
 // Add a "selected" class to clicked list item and open the edit window
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
+document.getElementById("myUL").addEventListener('click', function(ev) {
     if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
-        ev.target.classList.toggle('selected');
+        ev.target.classList.toggle("selected");
         document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
-            .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
+                                                            .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
         document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
-            .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
+                                                                 .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
         toggleEditTask();
     }
 }, false);
@@ -52,17 +51,16 @@ document.getElementById("cancelEdit").addEventListener("click", function() {
 });
 
 // Open the edit task window; Adds a "selected" class to list items when clicked
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
-    ev.target.classList.toggle('selected');
-    document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
-                                                        .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
-    document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
-                                                             .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
-    toggleEditTask();
-  }
-}, false);
+// document.getElementById("myUL").addEventListener('click', function(ev) {
+//   if (ev.target.tagName === 'SPAN' && ev.target.classList != "close") {
+//     ev.target.classList.toggle('selected');
+//     document.getElementById("taskname").value = document.getElementsByClassName("selected")[0].parentNode
+//                                                         .getElementsByClassName("col-9 remove-padding offset-task")[0].innerText;
+//     document.getElementById("daysremaining").value = document.getElementsByClassName("selected")[0].parentNode
+//                                                              .getElementsByClassName("col-3 remove-padding text-center")[0].innerText;
+//     toggleEditTask();
+//   }
+// }, false);
 
 
 /* ----------    Functions     ---------- */
@@ -88,7 +86,7 @@ function makeXsCloseable() {
 }
 
 // Toggles visibility of form to add new task
-function toggleAddTaskVis() {
+function toggleAddTask() {
     var newTask = document.getElementById("newTask");
     toggleVisibility(newTask);
 }
