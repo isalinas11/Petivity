@@ -76,9 +76,9 @@
                     jsEvent.target.parentElement.style.backgroundColor = 'rgb(105, 147, 205)';
                     jsEvent.target.parentElement.style.borderColor = "rgb(50, 110, 190)";
                     jsEvent.target.parentElement.style.color = "white";
-                }
-                if (event.url) {
-                    return false;
+                    if (event.url) {
+                        return false;
+                    }
                 }
             }
                 
