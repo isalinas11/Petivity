@@ -1,36 +1,16 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, StackNavigator, } from 'react-native';
+import { Text, View, StyleSheet, } from 'react-native';
+import {StackNavigator,} from 'react-navigation';
 import { Constants } from 'expo';
-import Login from './Login.js';
+//import Login from './Login.js';
 import StopClock from './StopClock.js';
-//const BasicApp = StackNavigator({
-//  Main: {screen: Main},
+import Main from './Main.js';
+import First from './First.js';
+
+const App = StackNavigator({ 
 //  Login: {screen: Login},
-//});
-
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <StopClock/>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#fcfcfc',
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#34495e',
-  },
-});
+  First: {screen: First},
+  Main: {screen: Main},
+  StopClock: {screen: StopClock},
+}, {headerMode: 'none'});
+export default App;

@@ -16,12 +16,17 @@ import {
 import Container from './Container.js';
 import Button from './Button.js';
 import Label from './Label.js';
-
+import {StackNavigator, NavigationActions} from 'react-navigation';
 //import Button from 'react-native-button'
 
 const {width, height} = Dimensions.get('window');
 export default class Login extends Component {
+    constructor(props){
+    super(props);
+       this.state = {};
+    }
   render() {
+     const { navigate } = this.props.navigation;
     return (
        <KeyboardAvoidingView behavior={'padding'} style={styles.container}>
          <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll} contentContainerStyle={styles.scroll}>
@@ -44,7 +49,7 @@ export default class Login extends Component {
                placeholderTextColor={"#A5A5A5"}
                style={styles.textInput}/>
          </View>
-         <TouchableOpacity style={styles.loginButtonClickable}>
+         <TouchableOpacity onPress= {() => navigate("First", {screen: "First"})} style={styles.loginButtonClickable}>
             <View style={styles.loginButton}>
                <Image source={ require('./google.png')} style={styles.logo}/>
                <Text style={styles.loginText}> Sign In </Text>
@@ -52,7 +57,6 @@ export default class Login extends Component {
          </TouchableOpacity>
          </ScrollView>
        </KeyboardAvoidingView>
-
     );
   }
 }
