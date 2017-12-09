@@ -1,0 +1,2 @@
+
+function blockRequest(details) { return {cancel: true}; } function updateFilters(urls) { chrome.webRequest.onBeforeRequest.addListener(blockRequest, {urls: ["*://*.google.com/*"]}, ['blocking']); } updateFilters();

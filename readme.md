@@ -32,9 +32,9 @@ After you've merged your changes, checkout master: git checkout master
 
 Update master: git pull
 
-Checkout your branch and rebase: 'git checkout my-branch'  
+Checkout your branch: 'git checkout my-branch'  
 
-Then:  'git rebase master'
+To update your branch with master: 'git merge master' or 'git rebase master'
 
 Finally, git push
 
