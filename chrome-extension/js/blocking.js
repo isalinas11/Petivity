@@ -42,7 +42,7 @@ BlockedSites = function() {
 
 BlockedSites.prototype = {
   urls: [],
-  index: 0,
+  urlIndex: 0,
 
   init: function() {
     this.load();
@@ -50,12 +50,12 @@ BlockedSites.prototype = {
 
   load: function() {
     this.urls = localStorage['urls'] ? JSON.parse(localStorage['urls']) : [];
-    this.index = localStorage['index'] ? JSON.parse(localStorage['index']) : 0;
+    this.urlIndex = localStorage['urlIndex'] ? JSON.parse(localStorage['urlIndex']) : 0;
   },
 
   save: function() {
     localStorage['urls'] = JSON.stringify(this.urls); 
-    localStorage['index'] = this.index; 
+    localStorage['urlIndex'] = this.urlIndex; 
   },
 
   urlExists: function(url) {
@@ -64,7 +64,7 @@ BlockedSites.prototype = {
 
   create: function(url) {
     if (!this.urlExists(url)) {
-      url.id = this.index++;
+      url.id = this.urlIndex++;
       this.urls.push(url);
       this.save();
     }
@@ -81,6 +81,7 @@ BlockedSites.prototype = {
   }
 
 }
+
 
 /* ----------    Event listeners     ---------- */
 

@@ -4,21 +4,77 @@ document.getElementById("newSite").style.display = "none";
 // Hide "edit task" form
 document.getElementById("newInterest").style.display = "none";
 
-// Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-for (var i = 0; i < myNodelist.length; i++) {
-	addTextElement(myNodelist[i], "span", "close", "\u00D7");
+
+/* ----------    Interests     ---------- */
+
+Interests = function() {
+  this.init();
+  return this;
 }
 
-// Show list of blocked sites
-for (var i = 0; i < blockedSites.urls.length; i++) {
-	renderListItem(blockedSites.urls[i], "siteList");
+Interests.prototype = {
+  interestList: [],
+  interestIndex: 0,
+
+  init: function() {
+    this.load();
+  },
+
+  load: function() {
+    this.interestList = localStorage['interests'] ? JSON.parse(localStorage['interests']) : [];
+    this.interestIndex = localStorage['interestIndex'] ? JSON.parse(localStorage['interestIndex']) : 0;
+  },
+
+  save: function() {
+    localStorage['interests'] = JSON.stringify(this.interestList); 
+    localStorage['interestIndex'] = this.interestIndex; 
+  },
+
+  interestExists: function(interest) {
+    return (this.interestList.indexOf(interest) > -1);
+  },
+
+  create: function(interest) {
+    if (!this.interestExists(interest)) {
+      interest.id = this.interestIndex++;
+      this.interestList.push(interest);
+      this.save();
+    }
+  },
+
+  delete: function(interest) {
+    var self = this;
+    this.interestList.forEach(function(t, i) {
+      if (t == interest) {
+        self.interestList.splice(i, 1);
+      }
+    });
+    this.save();
+  }
+
 }
 
-// Add "close" buttons
-makeXsCloseable();
 
 /* ----------    Event listeners     ---------- */
+
+var interests = new Interests();
+
+$(document).ready(function() {
+    interests.load();
+
+    // Show list of blocked sites
+    for (var i = 0; i < blockedSites.urls.length; i++) {
+        renderListItem(blockedSites.urls[i], "siteList");
+    }
+
+    // Show list of interests
+    for (var i = 0; i < interests.interestList.length; i++) {
+        renderListItem(interests.interestList[i], "interestList");
+    }
+
+    // Add "close" buttons
+    makeXsCloseable();
+});
 
 // Event listeners for adding new site to blocking list
 document.getElementById("addSiteButton").addEventListener("click", function() {
@@ -43,6 +99,8 @@ document.getElementById("addInterestButton").addEventListener("click", function(
     toggleAddInterest();
 });
 document.getElementById("addInterest").addEventListener("click", function() {
+    interests.create($("#addInterestInput")[0].value);
+
 	renderListItem($("#addInterestInput")[0].value, "interestList");
 	makeXsCloseable();
 
@@ -72,16 +130,17 @@ function makeXsCloseable() {
         close[i].onclick = function() {
             var li = this.parentElement;
             blockedSites.delete(li.firstChild.textContent);
+            interests.delete(li.firstChild.textContent);
             li.parentElement.removeChild(li);
         }
     }
 }
 
-// Populates Blocked Sites List
-function renderListItem(url, id) {
+// Populates lists
+function renderListItem(text, id) {
 	var ul = document.getElementById(id);
 	var li = document.createElement("li");
-	li.innerText = url;
+	li.innerText = text;
 	addTextElement(li, "span", "close", "\u00D7");
 	ul.appendChild(li);
 }
