@@ -12,6 +12,7 @@ import {
    Alert,
    AppState
 } from 'react-native';
+import {StackNavigator, NavigationActions} from 'react-navigation';
 import Button from './Button.js';
 import Modal from 'react-native-modal';
 import {
@@ -122,34 +123,40 @@ export default class StopClock extends Component {
  _renderButton = (text, onPress) => (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
-        <Text>{text}</Text>
+        <Text style = {{color: 'white', fontSize: 18}}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
 
   _renderModalContent = () => (
     <View style={styles.modalContent}>
-      <Image source={require('./facebook.png')}>
+      <Image style = {styles.image} source={require('./popup.jpg')}>
       <Text style = {styles.modalText}>{this.state.text}</Text>
       {this._renderButton('Close', () => this.setState({ visibleModal: null }))}
       </Image>
     </View>
   );
 render(){
+    const { goBack } = this.props.navigation;
    return(
-      <Image source={require('./blockscreen.png')} style={styles.backgroundImage}> 
+      <Image source={require('./blockscreen.png')} style={styles.backgroundImage}>
+      <TouchableHighlight
+          onPress={() => goBack()}
+          style={styles.back}>
+          <Text
+            style={styles.backText}> &larr; </Text>
+        </TouchableHighlight>
       <Stopwatch start = {this.state.stopwatchStart}
          reset = {this.state.stopwatchReset}
          options = {options}
          getTime = {this.getFormattedTime.bind(this)}
-         style = {styles.bottom}
-/>
+         style = {styles.bottom}/>
       <TouchableOpacity onPress = {this.toggleStopwatch.bind(this)}>
          <Text style = {{fontSize: 40, textAlign: 'center', marginTop: 15,
            justifyContent: 'center', backgroundColor: '#924d2e', color: 'white',
            marginLeft: 30, marginRight: 30}}> {!this.state.stopwatchStart ? "Start" : "Stop"} </Text> 
       </TouchableOpacity>
-<Modal
+<Modal 
           isVisible={this.state.visibleModal === 4}
           backdropOpacity={0.1}
           animationIn={'zoomInDown'}
@@ -171,7 +178,7 @@ const options= {
       backgroundColor: '#ab9c7b',
 //      padding: 5,
       borderRadius: 20,
-      marginTop: '142%',
+      marginTop: '116.5%',
       marginLeft: 30,
       marginRight: 30,
    },
@@ -183,15 +190,36 @@ const options= {
 };
 
 const styles = StyleSheet.create({
+   backText:{
+      color: 'white',
+      fontSize: 42,
+      textAlign: 'center',
+   },
+   back:{
+      borderColor:'#857449',
+      borderWidth: '5%',
+      backgroundColor: '#ab9c7b',
+      alignItems: 'left',
+      width: '20%',
+      height: '10%',
+      margin: '5%',
+   },
+   image:{
+      width: 333,
+      height: 242,
+   },
   backgroundImage: {
     width: '100%',
     flex: 1,
     resizeMode: 'cover', // or 'stretch'
   },
    button: {
-    backgroundColor: 'lightblue',
-    padding: 12,
-    marginTop: '55%',
+    backgroundColor: '#924d2e',
+    padding: 8,
+    marginTop: '10.5%',
+    marginLeft: '6%',
+    marginRight: '6%',
+    marginBottom: '8%',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
@@ -207,6 +235,10 @@ const styles = StyleSheet.create({
   },
 modalText:{
    backgroundColor: 'transparent',
+   padding: 16,
+   fontSize: 26,
+   color: 'white',
+   textAlign: 'center',
 }, 
   bottomModal: {
     justifyContent: 'flex-end',
