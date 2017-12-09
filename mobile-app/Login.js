@@ -16,12 +16,17 @@ import {
 import Container from './Container.js';
 import Button from './Button.js';
 import Label from './Label.js';
-
+import {StackNavigator, NavigationActions} from 'react-navigation';
 //import Button from 'react-native-button'
 
 const {width, height} = Dimensions.get('window');
 export default class Login extends Component {
+    constructor(props){
+    super(props);
+       this.state = {};
+    }
   render() {
+     const { navigate } = this.props.navigation;
     return (
       <KeyboardAvoidingView behavior={'padding'} style={styles.container}>
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
@@ -38,6 +43,15 @@ export default class Login extends Component {
           <View style={styles.textInputWrapper}>
             <Text style={styles.inputLabel}> Password </Text>
             <TextInput
+<<<<<<< HEAD
+               secureTextEntry={true}
+               autoCorrect={false}
+               placeholder={"Password"}
+               placeholderTextColor={"#A5A5A5"}
+               style={styles.textInput}/>
+         </View>
+         <TouchableOpacity onPress= {() => navigate("First", {screen: "First"})} style={styles.loginButtonClickable}>
+=======
               secureTextEntry={true}
               autoCorrect={false}
               placeholder={"Password"}
@@ -45,13 +59,20 @@ export default class Login extends Component {
               style={styles.textInput}/>
           </View>
           <TouchableOpacity style={styles.loginButtonClickable}>
+>>>>>>> 012d5edab9f2b837df1daeb75e56068fa49f2dc0
             <View style={styles.loginButton}>
               <Image source={require('./google.png')} style={styles.signInLogo}/>
               <Text style={styles.loginText}> Sign In </Text>
             </View>
+<<<<<<< HEAD
+         </TouchableOpacity>
+         </ScrollView>
+       </KeyboardAvoidingView>
+=======
           </TouchableOpacity>
         </ScrollView>
       </KeyboardAvoidingView>
+>>>>>>> 012d5edab9f2b837df1daeb75e56068fa49f2dc0
     );
   }
 }
