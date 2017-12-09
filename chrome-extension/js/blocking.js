@@ -124,9 +124,10 @@ function blockSite(tabId, changeInfo, tab) {
   if (settings.all.blockSites) {
     blockedSites.load();
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function(tabs) {
-      var url = tab.url;
-      if (blockedSites.urls.indexOf(url) > -1) {
-        chrome.tabs.update(tabId, {url: 'blocked.html'});
+      for (var i = 0; i < blockedSites.urls.length; i++) {
+        if (tab.url.includes(blockedSites.urls[i])) {
+          chrome.tabs.update(tabId, {url: 'blocked.html'});
+        }
       }
     });
   }
