@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Petivity",
     "description": "Productiviy's Best Friend",
-    "version": "1.0",
+    "version": "0.0.0.1",
     "chrome_url_overrides" : {
         "newtab": "petivity.html"
     },
