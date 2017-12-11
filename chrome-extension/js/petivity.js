@@ -51,7 +51,7 @@ document.getElementById("cancelEdit").addEventListener("click", function() {
 });
 
 // Adds animations any time an item is completed
-$(".close").click(function() { 
+$(".close").click(function() {
 
     //for the fruit
     var child = new Image();
@@ -134,11 +134,8 @@ function toggleEditTask() {
 
 // Helper function for the toggleAddTask and toggleEditTask functions
 function toggleVisibility(task) {
-    if (task.style.display == "none") {
-        task.style.display = "block";
-    } else {
-        task.style.display = "none";
-    }
+    const display = task.style.display
+    display === "none" ? display = "block" : display = "none"
 }
 
 // Hit the cancel button when editing an task
