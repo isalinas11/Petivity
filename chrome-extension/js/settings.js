@@ -26,8 +26,8 @@ Interests.prototype = {
   },
 
   save: function() {
-    localStorage['interests'] = JSON.stringify(this.interestList); 
-    localStorage['interestIndex'] = this.interestIndex; 
+    localStorage['interests'] = JSON.stringify(this.interestList);
+    localStorage['interestIndex'] = this.interestIndex;
   },
 
   interestExists: function(interest) {

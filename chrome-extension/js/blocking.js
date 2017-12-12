@@ -54,12 +54,12 @@ BlockedSites.prototype = {
   },
 
   save: function() {
-    localStorage['urls'] = JSON.stringify(this.urls); 
-    localStorage['urlIndex'] = this.urlIndex; 
+    localStorage['urls'] = JSON.stringify(this.urls);
+    localStorage['urlIndex'] = this.urlIndex;
   },
 
   urlExists: function(url) {
-    return (this.urls.indexOf(url) > -1);
+    return this.urls.includes(url);
   },
 
   create: function(url) {
@@ -72,11 +72,7 @@ BlockedSites.prototype = {
 
   delete: function(url) {
     var self = this;
-    this.urls.forEach(function(t, i) {
-      if (t == url) {
-        self.urls.splice(i, 1);
-      }
-    });
+    this.urls = this.urls.filter((item) => item !== url);
     this.save();
   }
 
@@ -137,7 +133,7 @@ function blockSite(tabId, changeInfo, tab) {
 function updateButtonAndBadge() {
   var sitesBlockElem = $('#start_blocking_button');
   if (settings.all.blockSites) {
-    sitesBlockElem.text("Disable Site Blocking"); 
+    sitesBlockElem.text("Disable Site Blocking");
     toggleBadge("red", " ");
   } else {
     sitesBlockElem.text("Start Blocking Now");
@@ -153,9 +149,9 @@ function toggleBadge(rgbColor, badgeText) {
 // Display blocked sites
 function populateBlockedUrls() {
   var urlList = $("<ul class='blocked_list'></ul>");
-  for (var i = 0; i < blockedSites.urls.length; i++) {
-    urlList.append("<li><button class='grey remove_button' data-url='" + blockedSites.urls[i] + "'>" + blockedSites.urls[i] + '</button></li>');
-  }
+  blockedSites.urls.map((url) => {
+    urlList.append(`<li><button class='grey remove_button' data-url='${url}'>'${url}'</button></li>`);
+  })
   $('#blocked_sites').html(urlList);
 
   removeButtons();
