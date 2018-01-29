@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "Petivity",
+    "description": "Productiviy's Best Friend",
+    "version": "0.0.0.1",
+    "chrome_url_overrides" : {
+        "newtab": "petivity.html"
+    },
+    "browser_action": {
+        "default_icon": "images/crab.png",
+        "default_popup": "popup.html",
+        "default_title": "Quick Settings"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "identity",
+        "webRequest",
+        "*://*.googleapis.com/*"
+    ],
+    "oauth2": {
+        "client_id": "387432153530-j41i9vosgrvbamml56vo7014p899dbor.apps.googleusercontent.com",
+        "scopes": ["https://www.googleapis.com/auth/drive"]
+    },
+    "content_scripts": [{
+        "js": ["js/petivity.js", "js/settings.js", "js/blocking.js", "js/calendar.js"],
+        "css": ["css/petivity.css", "css/blocked.css", "css/petivity-settings.css"],
+        "matches": ["*://*.google.com/_/chrome/newtab*"]
+    }],
+    "content_security_policy": "script-src 'self' https://code.jquery.com/jquery-3.2.1.min.js https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.3/moment.min.js https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/gcal.js https://www.googleapis.com/; object-src 'self'"
+}
